@@ -13,4 +13,13 @@
     <string name="etplacaTaxi">Placa Taxi</string>
     <string name="etmarcaTaxi">Marca Taxi</string>
     <string name="btnCrearTaxi">Crear Taxi</string>
+
+    <string name="tvTituloCompra">Registrar compar</string>
+    <string name="etProductocom">Producto</string>
+    <string name="etprecioUnicom">Precio Unitario Producto</string>
+    <string name="etCantidadcom">Cantidad Unitaria</string>
+    <string name="etfechaCom">Fecha de Compra</string>
+    <string name="etdescripcionCom">Descripcion Compra</string>
+    <string name="etPlacaTaxi">Placa del Taxi</string>
+
 </resources>

@@ -2,7 +2,6 @@ package com.edu.uniminuto.app_taxi.repository;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -29,7 +28,6 @@ public class TaxiRepository {
             ContentValues values = new ContentValues();
             values.put("marca_taxi", taxi.getMarca_taxi());
             values.put("placa_taxi", taxi.getPlaca_taxi());
-            values.put("cedula_con", taxi.getCedula_con());
 
             long response = databaseSql.insertOrThrow("taxi", null, values);
 
@@ -40,7 +38,7 @@ public class TaxiRepository {
             Snackbar.make(this.view, "Error al registrar el taxi: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
         }
     }
-    public boolean conductorExists(long cedula_con) {
+    /*public boolean conductorExists(long cedula_con) {
         try {
             SQLiteDatabase db = dataBaseTaxi.getReadableDatabase();
             Cursor cursor = db.rawQuery("SELECT cedula_con FROM conductor WHERE cedula_con = ?",
@@ -49,5 +47,5 @@ public class TaxiRepository {
         } catch (Exception e) {
             return false;
         }
-    }
+    }*/
 }

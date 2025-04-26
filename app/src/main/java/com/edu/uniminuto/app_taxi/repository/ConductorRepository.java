@@ -46,7 +46,7 @@ public class ConductorRepository {
             e.printStackTrace();
         }
     }
-    public Conductor getConductorByCedula(int document){
+    public Conductor getConductorByCedula(long document){
         try {
             Conductor conductor = null;
             SQLiteDatabase dataBaseSql = dataBaseTaxi.getReadableDatabase();

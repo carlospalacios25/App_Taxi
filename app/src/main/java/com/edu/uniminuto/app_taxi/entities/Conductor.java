@@ -1,16 +1,16 @@
 package com.edu.uniminuto.app_taxi.entities;
 
 public class Conductor {
-    private int cedula_con;
+    private long cedula_con;
     private String nombre_con;
     private String apellido_con;
-    private int telefono_con;
+    private long telefono_con;
     private String direccion_con;
 
     public Conductor() {
     }
 
-    public Conductor(int cedula_con, String nombre_con, String apellido_con, int telefono_con, String direccion_con) {
+    public Conductor(long cedula_con, String nombre_con, String apellido_con, long telefono_con, String direccion_con) {
         this.cedula_con = cedula_con;
         this.nombre_con = nombre_con;
         this.apellido_con = apellido_con;
@@ -18,11 +18,11 @@ public class Conductor {
         this.direccion_con = direccion_con;
     }
 
-    public int getCedula_con() {
+    public long getCedula_con() {
         return cedula_con;
     }
 
-    public void setCedula_con(int cedula_con) {
+    public void setCedula_con(long cedula_con) {
         this.cedula_con = cedula_con;
     }
 
@@ -42,11 +42,11 @@ public class Conductor {
         this.apellido_con = apellido_con;
     }
 
-    public int getTelefono_con() {
+    public long getTelefono_con() {
         return telefono_con;
     }
 
-    public void setTelefono_con(int telefono_con) {
+    public void setTelefono_con(long telefono_con) {
         this.telefono_con = telefono_con;
     }
 

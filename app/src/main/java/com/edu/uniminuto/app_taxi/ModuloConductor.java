@@ -29,10 +29,10 @@ public class ModuloConductor extends AppCompatActivity {
     private EditText etDireccionCon;
     private Button btnCrearCon;
     SQLiteDatabase sqLiteDatabase;
-    private int cedulaCon;
+    private long cedulaCon;
     private String nombreCon;
     private String apellidoCon;
-    private int telefonoCon;
+    private long telefonoCon;
     private String direccionCon;
     private Button btnBuscar;
     private ListView lvListar;
@@ -73,10 +73,10 @@ public class ModuloConductor extends AppCompatActivity {
     }
 
     private void capData(){
-        this.cedulaCon = Integer.parseInt(this.etCedulaCon.getText().toString());
+        this.cedulaCon = Long.parseLong(this.etCedulaCon.getText().toString());
         this.nombreCon = etNombreCon.getText().toString();
         this.apellidoCon = etApellidoCon.getText().toString();
-        this.telefonoCon = Integer.parseInt(this.etTelefonoCon.getText().toString());
+        this.telefonoCon = Long.parseLong(this.etTelefonoCon.getText().toString());
         this.direccionCon = etDireccionCon.getText().toString();
     }
     private void limpiarCampos() {
@@ -138,11 +138,11 @@ public class ModuloConductor extends AppCompatActivity {
 
     }
     private void referencia(){
-        this.etCedulaCon = findViewById(R.id.etCedulaCon);
-        this.etNombreCon = findViewById(R.id.etmarcaTaxi);
-        this.etApellidoCon = findViewById(R.id.etplacaTaxi);
-        this.etTelefonoCon = findViewById(R.id.etcedulaCon);
-        this.etDireccionCon = findViewById(R.id.etDireccionCon);
+        this.etCedulaCon = findViewById(R.id.etProductocom);
+        this.etNombreCon = findViewById(R.id.etprecioUnicom);
+        this.etApellidoCon = findViewById(R.id.etCantidadcom);
+        this.etTelefonoCon = findViewById(R.id.etfechaCom);
+        this.etDireccionCon = findViewById(R.id.etdescripcionCom);
         this.btnCrearCon = findViewById(R.id.btnCrearTaxi);
         this.btnBuscar = findViewById(R.id.btnBuscarConductor);
         this.lvListar = findViewById(R.id.lvListar);
