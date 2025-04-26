@@ -1,6 +1,8 @@
 package com.edu.uniminuto.app_taxi;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
 
@@ -21,10 +24,11 @@ public class ModuloTaxi extends AppCompatActivity {
     private EditText etcedulaCon;
     private String marca_taxi;
     private String placa_taxi;
-    private int cedula_con;
+    private long cedula_con;
     private Button btnCrearTaxi;
+    private Button btnBuscarConductor;
     private Context context;
-    private SQLiteDatabase sqLiteDatabase;
+    private DataBaseTaxi dataBaseTaxi;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,8 +36,13 @@ public class ModuloTaxi extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.taxi);
 
+        this.dataBaseTaxi = new DataBaseTaxi(this);
         this.referencia();
         this.btnCrearTaxi.setOnClickListener(this::crearTaxi);
+        this.btnBuscarConductor.setOnClickListener(v -> {
+            Intent intent = new Intent(ModuloTaxi.this, ModuloConductor.class);
+            startActivity(intent);
+        });
     }
 
     private void crearTaxi(View view) {
@@ -51,8 +60,17 @@ public class ModuloTaxi extends AppCompatActivity {
 
         try {
             capData();
-            Taxi taxi = new Taxi(0,marca_taxi, placa_taxi, cedula_con);
             TaxiRepository taxiRepository = new TaxiRepository(this, view);
+            if (!taxiRepository.conductorExists(cedula_con)) {
+                new AlertDialog.Builder(this)
+                        .setTitle("Error")
+                        .setMessage("La cédula del conductor no está registrada.")
+                        .setPositiveButton("Aceptar", null)
+                        .show();
+                return;
+            }
+
+            Taxi taxi = new Taxi(marca_taxi, placa_taxi, cedula_con);
             taxiRepository.insertTaxi(taxi);
             limpiarCampos();
         } catch (NumberFormatException e) {
@@ -67,7 +85,7 @@ public class ModuloTaxi extends AppCompatActivity {
     private void capData() {
         this.marca_taxi = etmarcaTaxi.getText().toString().trim();
         this.placa_taxi = etplacaTaxi.getText().toString().trim();
-        this.cedula_con = Integer.parseInt(etcedulaCon.getText().toString().trim());
+        this.cedula_con = Long.parseLong(etcedulaCon.getText().toString().trim()); // Cambiado a Long
     }
 
     private void limpiarCampos() {
@@ -81,6 +99,9 @@ public class ModuloTaxi extends AppCompatActivity {
         this.btnCrearTaxi = findViewById(R.id.btnCrearTaxi);
         this.etplacaTaxi = findViewById(R.id.etplacaTaxi);
         this.etcedulaCon = findViewById(R.id.etcedulaCon);
+        this.btnBuscarConductor = findViewById(R.id.btnBuscarConductor);
         this.context = this;
     }
+
+
 }

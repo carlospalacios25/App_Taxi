@@ -144,7 +144,7 @@ public class ModuloConductor extends AppCompatActivity {
         this.etTelefonoCon = findViewById(R.id.etcedulaCon);
         this.etDireccionCon = findViewById(R.id.etDireccionCon);
         this.btnCrearCon = findViewById(R.id.btnCrearTaxi);
-        this.btnBuscar = findViewById(R.id.btnBuscar);
+        this.btnBuscar = findViewById(R.id.btnBuscarConductor);
         this.lvListar = findViewById(R.id.lvListar);
         this.context = this;
         this.direccionCon = etDireccionCon.getText().toString();

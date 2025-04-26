@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
 
     <Button
-        android:id="@+id/btnBuscar"
+        android:id="@+id/btnBuscarConductor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -88,6 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscarConductor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
