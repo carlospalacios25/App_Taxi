@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">App_Taxi</string>
+    <string name="tvTituloCon">Crear Conductor</string>
+    <string name="etCedulaCon">Cedula Conductor</string>
+    <string name="etNombreCon">Nombre Conductor</string>
+    <string name="etApellidoCon">Apellido Conductor</string>
+    <string name="etTelefonoCon">Telefono Conductor</string>
+    <string name="etDireccionCon">Direccion Conductor</string>
+    <string name="btnCrearCon">Crear Conductor</string>
+    <string name="btnBuscar">Buscar Conductor</string>
+
+    <string name="tvTituloTaxi">Crear Taxi</string>
+    <string name="etplacaTaxi">Placa Taxi</string>
+    <string name="etmarcaTaxi">Marca Taxi</string>
+    <string name="btnCrearTaxi">Crear Taxi</string>
+</resources>
