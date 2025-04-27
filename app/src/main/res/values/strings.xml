@@ -24,5 +24,6 @@
     <string name="etPlacaTaxi">Placa Taxi</string>
     <string name="btnBuscarTaxi">Buscar Taxi</string>
     <string name="btnRegistrarGi">Resgistrar</string>
+    <string name="btnBuscarU">Buscar Registro</string>
 
 </resources>

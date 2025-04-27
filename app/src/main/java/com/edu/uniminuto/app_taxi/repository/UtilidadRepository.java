@@ -13,25 +13,24 @@ import com.edu.uniminuto.app_taxi.entities.Utilidad;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class UtilidadRepository {
-    private DataBaseTaxi dataBaseTaxi;
+    private DataBaseTaxi dataBaseUtilidad;
     private Context context;
     private View view;
 
     public UtilidadRepository(Context context, View view) {
         this.context = context;
         this.view = view;
-        this.dataBaseTaxi = new DataBaseTaxi(context);
+        this.dataBaseUtilidad = new DataBaseTaxi(context);
     }
 
     public void insertUtilidad(Utilidad utilidad) {
-        SQLiteDatabase databaseSql = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String fechaFormatted = sdf.format(utilidad.getFecha_com());
         try {
-
-            databaseSql = dataBaseTaxi.getWritableDatabase();
+            SQLiteDatabase databaseSql = dataBaseUtilidad.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("gastos_com", utilidad.getGastos_com());
             values.put("igresos_com", utilidad.getIgresos_com());
@@ -48,19 +47,13 @@ public class UtilidadRepository {
         } catch (SQLException e) {
             Log.e("UtilidadRepository", "insertUtilidad: " + e.getMessage());
             Snackbar.make(this.view, "Error al registrar la utilidad: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
-        } finally {
-            if (databaseSql != null && databaseSql.isOpen()) {
-                databaseSql.close();
-            }
         }
     }
 
     public boolean placaTaxiExists(String placa_taxi) {
-        SQLiteDatabase db = null;
-        Cursor cursor = null;
         try {
-            db = dataBaseTaxi.getReadableDatabase();
-            cursor = db.rawQuery("SELECT placa_taxi FROM taxi WHERE placa_taxi = ?",
+            SQLiteDatabase db = dataBaseUtilidad.getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT placa_taxi FROM taxi WHERE placa_taxi = ?",
                     new String[]{placa_taxi});
             return cursor.getCount() > 0;
         } catch (Exception e) {
@@ -70,16 +63,39 @@ public class UtilidadRepository {
     }
 
     public boolean conductorExists(long cedula_con) {
-        SQLiteDatabase db = null;
-        Cursor cursor = null;
         try {
-            db = dataBaseTaxi.getReadableDatabase();
-            cursor = db.rawQuery("SELECT cedula_con FROM conductor WHERE cedula_con = ?",
+            SQLiteDatabase db = dataBaseUtilidad.getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT cedula_con FROM conductor WHERE cedula_con = ?",
                     new String[]{String.valueOf(cedula_con)});
             return cursor.getCount() > 0;
         } catch (Exception e) {
             Log.e("UtilidadRepository", "conductorExists: " + e.getMessage());
             return false;
+        }
+    }
+    public Utilidad getUtilidadByParams(Date fecha, String placa, long cedula) {
+        try {
+            SQLiteDatabase dataBaseSql = dataBaseUtilidad.getReadableDatabase();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaFormatted = sdf.format(fecha);
+            String query = "SELECT * FROM registroDiario WHERE fecha_com = ? AND placa_taxi = ? AND cedula_con = ?";
+            Cursor cursor = dataBaseSql.rawQuery(query, new String[]{fechaFormatted, placa, String.valueOf(cedula)});
+
+            if (cursor.moveToFirst()) {
+                Utilidad utilidad = new Utilidad();
+                utilidad.setGastos_com(cursor.getDouble(1));
+                utilidad.setIgresos_com(cursor.getDouble(2));
+                // utilidad_com se calcula automáticamente en getUtilidad_com()
+                utilidad.setFecha_com(sdf.parse(cursor.getString(4)));
+                utilidad.setDescripcion_com(cursor.getString(5));
+                utilidad.setPlaca_taxi(cursor.getString(6));
+                utilidad.setCedula_con(cursor.getLong(7));
+                return utilidad;
+            }
+            return null;
+        } catch (Exception e) {
+            Log.e("UtilidadRepository", "getUtilidadByParams: " + e.getMessage());
+            return null;
         }
     }
 }

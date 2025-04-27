@@ -47,7 +47,56 @@ public class ModuloUtilidad extends AppCompatActivity {
         this.setupListeners();  // Configurar los listeners
         this.btnRegistrarGi.setOnClickListener(this::crearUtilidad);
     }
+    private void buscarUtilidad(View view) {
+        String fechaStr = etfechaCom.getText().toString().trim();
+        String placa_taxi = etPlacaTaxi.getText().toString().trim();
+        String cedulaStr = etcedulaCon.getText().toString().trim();
 
+        // Validar campos vacíos
+        if (fechaStr.isEmpty() || placa_taxi.isEmpty() || cedulaStr.isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Campos vacíos")
+                    .setMessage("Por favor, completa todos los campos.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+
+        try {
+            // Parsear la fecha
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date fecha = sdf.parse(fechaStr);
+            long cedula = Long.parseLong(cedulaStr);
+
+            UtilidadRepository utilidadRepository = new UtilidadRepository(this, view);
+            Utilidad utilidad = utilidadRepository.getUtilidadByParams(fecha, placa_taxi, cedula);
+
+            if (utilidad != null) {
+                etgastosCom.setText(String.valueOf(utilidad.getGastos_com()));
+                etigresoscom.setText(String.valueOf(utilidad.getIgresos_com()));
+                etutilidadTaxi.setText(String.valueOf(utilidad.getUtilidad_com()));
+                etdescripcionCom.setText(utilidad.getDescripcion_com());
+            } else {
+                new AlertDialog.Builder(this)
+                        .setTitle("Utilidad no encontrada")
+                        .setMessage("No se encontró una utilidad con los datos ingresados.")
+                        .setPositiveButton("Aceptar", null)
+                        .show();
+            }
+        } catch (ParseException e) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error de fecha")
+                    .setMessage("Por favor, ingresa la fecha en formato YYYY-MM-DD.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        } catch (NumberFormatException e) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error de cédula")
+                    .setMessage("Por favor, ingresa una cédula válida.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        }
+    }
     private void crearUtilidad(View view) {
         if (etgastosCom.getText().toString().trim().isEmpty() ||
                 etigresoscom.getText().toString().trim().isEmpty() ||

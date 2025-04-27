@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etutilidadTaxi" />
 
     <Button
-        android:id="@+id/btnBuscarTaxi"
+        android:id="@+id/btnBuscarU"
         android:layout_width="167dp"
         android:layout_height="53dp"
         android:layout_marginTop="64dp"
