@@ -23,5 +23,6 @@
     <string name="etcedulaCon">Cedula de Conductor</string>
     <string name="etPlacaTaxi">Placa Taxi</string>
     <string name="btnBuscarTaxi">Buscar Taxi</string>
+    <string name="btnRegistrarGi">Resgistrar</string>
 
 </resources>
