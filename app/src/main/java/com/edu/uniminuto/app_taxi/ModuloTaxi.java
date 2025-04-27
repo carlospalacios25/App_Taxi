@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
 
@@ -24,7 +23,6 @@ public class ModuloTaxi extends AppCompatActivity {
     private Button btnCrearTaxi;
     private Button btnBuscarConductor;
     private Context context;
-    private DataBaseTaxi dataBaseTaxi;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,9 +30,9 @@ public class ModuloTaxi extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.taxi);
 
-        this.dataBaseTaxi = new DataBaseTaxi(this);
         this.referencia();
         this.btnCrearTaxi.setOnClickListener(this::crearTaxi);
+
     }
 
     private void crearTaxi(View view) {
@@ -51,23 +49,14 @@ public class ModuloTaxi extends AppCompatActivity {
 
         try {
             capData();
-            TaxiRepository taxiRepository = new TaxiRepository(this, view);
-           /* if (!taxiRepository.conductorExists(cedula_con)) {
-                new AlertDialog.Builder(this)
-                        .setTitle("Error")
-                        .setMessage("La cédula del conductor no está registrada.")
-                        .setPositiveButton("Aceptar", null)
-                        .show();
-                return;
-            }*/
-
             Taxi taxi = new Taxi(marca_taxi, placa_taxi);
+            TaxiRepository taxiRepository = new TaxiRepository(this, view);
             taxiRepository.insertTaxi(taxi);
             limpiarCampos();
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             new AlertDialog.Builder(this)
-                    .setTitle("Error de formato")
-                    .setMessage("La cédula debe ser un número válido.")
+                    .setTitle("Error")
+                    .setMessage("Error al crear el taxi: " + e.getMessage())
                     .setPositiveButton("Aceptar", null)
                     .show();
         }
@@ -84,12 +73,10 @@ public class ModuloTaxi extends AppCompatActivity {
     }
 
     private void referencia() {
-        this.etmarcaTaxi = findViewById(R.id.etprecioUnicom);
+        this.etmarcaTaxi = findViewById(R.id.etmarcaTaxi);
         this.btnCrearTaxi = findViewById(R.id.btnCrearTaxi);
-        this.etplacaTaxi = findViewById(R.id.etCantidadcom);
+        this.etplacaTaxi = findViewById(R.id.etplacaTaxi);
         this.btnBuscarConductor = findViewById(R.id.btnBuscarConductor);
         this.context = this;
     }
-
-
 }

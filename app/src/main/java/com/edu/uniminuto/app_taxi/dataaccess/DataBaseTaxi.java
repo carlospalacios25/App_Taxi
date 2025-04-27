@@ -31,9 +31,9 @@ public class DataBaseTaxi extends SQLiteOpenHelper {
             db.execSQL(CREATE_TABLE_CONDUCTOR);
 
             final String CREATE_TABLE_TAXI = "CREATE TABLE " + TABLE_TAXI + " (" +
-                    "id_taxi INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "marca_taxi VARCHAR(80) NOT NULL, " +
-                    "placa_taxi VARCHAR(15) NOT NULL)";
+                    "id_taxi INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "marca_taxi VARCHAR(100) NOT NULL, " +
+                    "placa_taxi VARCHAR(20) NOT NULL UNIQUE )";
             db.execSQL(CREATE_TABLE_TAXI);
 
             final String CREATE_TABLE_COMPRA = "CREATE TABLE " + TABLE_COMPRA_INGRESO + " (" +

@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etProductocom" />
 
     <EditText
-        android:id="@+id/etCantidadcom"
+        android:id="@+id/etplacaTaxi"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCantidadcom" />
+        app:layout_constraintTop_toBottomOf="@+id/etplacaTaxi" />
 
     <EditText
         android:id="@+id/etdescripcionCom"

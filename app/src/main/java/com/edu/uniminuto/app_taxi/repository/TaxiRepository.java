@@ -23,8 +23,9 @@ public class TaxiRepository {
     }
 
     public void insertTaxi(Taxi taxi) {
+        SQLiteDatabase databaseSql = null;
         try {
-            SQLiteDatabase databaseSql = dataBaseTaxi.getWritableDatabase();
+            databaseSql = dataBaseTaxi.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("marca_taxi", taxi.getMarca_taxi());
             values.put("placa_taxi", taxi.getPlaca_taxi());
@@ -36,8 +37,13 @@ public class TaxiRepository {
         } catch (SQLException e) {
             Log.e("TaxiRepository", "insertTaxi: " + e.getMessage());
             Snackbar.make(this.view, "Error al registrar el taxi: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+        } finally {
+            if (databaseSql != null && databaseSql.isOpen()) {
+                databaseSql.close();
+            }
         }
     }
+
     /*public boolean conductorExists(long cedula_con) {
         try {
             SQLiteDatabase db = dataBaseTaxi.getReadableDatabase();
