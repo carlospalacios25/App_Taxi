@@ -39,7 +39,7 @@ public class DataBaseTaxi extends SQLiteOpenHelper {
             final String CREATE_TABLE_COMPRA = "CREATE TABLE " + TABLE_COMPRA_INGRESO + " (" +
                     "id_compra INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "gastos_com DOUBLE NOT NULL, " +
-                    "Igresos_com DOUBLE NOT NULL, " +
+                    "igresos_com DOUBLE NOT NULL, " +
                     "utilidad_com DOUBLE NOT NULL, " +
                     "fecha_com DATE NOT NULL, " +
                     "descripcion_com VARCHAR(256) NOT NULL, " +
@@ -57,7 +57,7 @@ public class DataBaseTaxi extends SQLiteOpenHelper {
             db.execSQL(CREATE_TABLE_USER);
 
         } catch (Exception e) {
-            Log.e("DatabaseHelper", "Error creating tables: " + e.getMessage());
+            Log.e("DataBaseTaxi", "Error en crear tables: " + e.getMessage());
         }
     }
 
@@ -70,7 +70,7 @@ public class DataBaseTaxi extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_USUARIOS);
             onCreate(db);
         } catch (Exception e) {
-            Log.e("DatabaseHelper", "Error upgrading database: " + e.getMessage());
+            Log.e("DataBaseTaxi", "Error upgrading database: " + e.getMessage());
         }
     }
 }

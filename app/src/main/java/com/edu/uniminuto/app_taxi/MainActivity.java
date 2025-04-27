@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button prueba;
     private Intent intent;
     private Button btnIngresar2;
+    private Button btnGastos;
 
 
     @Override
@@ -30,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
         this.Referencia();
         this.prueba.setOnClickListener(this::OpenModConductor);
         this.btnIngresar2.setOnClickListener(this::OpenModTaxi);
+        this.btnGastos.setOnClickListener(this::OpenModGasto);
     }
+
+    private void OpenModGasto(View view) {
+        this.intent = new Intent(MainActivity.this, ModuloUtilidad.class);
+        startActivityForResult(intent, 1);
+    }
+
     private void OpenModConductor(View view) {
         this.intent = new Intent(MainActivity.this, ModuloConductor.class);
         startActivityForResult(intent, 1);
@@ -44,5 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.prueba = findViewById(R.id.btnIngresar);
         this.btnIngresar2 =findViewById(R.id.btnIngresar2);
+        this.btnGastos =findViewById(R.id.btnGastos);
     }
 }

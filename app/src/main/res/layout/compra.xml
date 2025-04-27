@@ -9,54 +9,54 @@
 
     <TextView
         android:id="@+id/tvTituloCompra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_width="338dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="52dp"
         android:text="@string/tvTituloCompra"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etProductocom"
+        android:id="@+id/etgastosCom"
         android:layout_width="312dp"
         android:layout_height="54dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="@string/etProductocom"
-        android:inputType="number"
+        android:hint="@string/etgastosCom"
+        android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTituloCompra" />
 
     <EditText
-        android:id="@+id/etprecioUnicom"
+        android:id="@+id/etigresoscom"
         android:layout_width="314dp"
         android:layout_height="53dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="@string/etprecioUnicom"
+        android:hint="@string/etigresoscom"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etProductocom" />
+        app:layout_constraintTop_toBottomOf="@+id/etgastosCom" />
 
     <EditText
-        android:id="@+id/etplacaTaxi"
+        android:id="@+id/etutilidadTaxi"
         android:layout_width="314dp"
         android:layout_height="53dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="@string/etCantidadcom"
-        android:inputType="text"
+        android:hint="@string/etutilidadTaxi"
+        android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etprecioUnicom" />
+        app:layout_constraintTop_toBottomOf="@+id/etigresoscom" />
 
     <EditText
         android:id="@+id/etfechaCom"
@@ -65,35 +65,48 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/etfechaCom"
-        android:inputType="number"
+        android:inputType="datetime|date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etplacaTaxi" />
+        app:layout_constraintTop_toBottomOf="@+id/etutilidadTaxi" />
 
     <EditText
         android:id="@+id/etdescripcionCom"
         android:layout_width="314dp"
         android:layout_height="53dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="@string/etDireccionCon"
+        android:hint="@string/etdescripcionCom"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintHorizontal_bias="0.265"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etfechaCom" />
+
+    <EditText
+        android:id="@+id/etcedulaCon"
+        android:layout_width="314dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/etcedulaCon"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.268"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPlacaTaxi" />
 
     <EditText
         android:id="@+id/etPlacaTaxi"
         android:layout_width="314dp"
         android:layout_height="53dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="@string/etDireccionCon"
+        android:hint="@string/etPlacaTaxi"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etdescripcionCom" />
 
@@ -101,22 +114,22 @@
         android:id="@+id/btnCrearTaxi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:text="@string/btnCrearCon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPlacaTaxi" />
+        app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
 
     <Button
-        android:id="@+id/btnBuscarConductor"
+        android:id="@+id/btnBuscarTaxi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="32dp"
         android:text="@string/btnBuscar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPlacaTaxi" />
+        app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

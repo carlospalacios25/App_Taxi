@@ -2,12 +2,14 @@ package com.edu.uniminuto.app_taxi.repository;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
+import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -41,6 +43,27 @@ public class TaxiRepository {
             if (databaseSql != null && databaseSql.isOpen()) {
                 databaseSql.close();
             }
+        }
+    }
+    public Taxi getTaxiByPLaca(String placa){
+        try {
+            Taxi taxi  = null;
+            SQLiteDatabase dataBaseSql = dataBaseTaxi.getReadableDatabase();
+            String query = "SELECT * FROM taxi WHERE placa_taxi = ?" ;
+            Cursor cursor = dataBaseSql.rawQuery(query, new String[]{String.valueOf(placa)});
+            if (cursor.moveToFirst()){
+                taxi = new Taxi();
+                taxi.setMarca_taxi(cursor.getString(1));
+                taxi.setPlaca_taxi(cursor.getString(2));
+
+            }
+            cursor.close();
+            dataBaseSql.close();
+            return taxi;
+        } catch (SQLException e) {
+            Log.i("Campo vacio", e.getMessage());
+            e.printStackTrace();
+            return null;
         }
     }
 

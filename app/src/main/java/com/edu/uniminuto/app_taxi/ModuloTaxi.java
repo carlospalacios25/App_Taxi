@@ -1,7 +1,6 @@
 package com.edu.uniminuto.app_taxi;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,7 @@ public class ModuloTaxi extends AppCompatActivity {
     private String marca_taxi;
     private String placa_taxi;
     private Button btnCrearTaxi;
-    private Button btnBuscarConductor;
+    private Button btnBuscarTaxi;
     private Context context;
 
     @Override
@@ -32,7 +31,35 @@ public class ModuloTaxi extends AppCompatActivity {
 
         this.referencia();
         this.btnCrearTaxi.setOnClickListener(this::crearTaxi);
+        this.btnBuscarTaxi.setOnClickListener(this::buscarTaxi);
 
+    }
+
+    private void buscarTaxi(View view) {
+        String placa_taxi = etplacaTaxi.getText().toString().trim();
+
+        if (placa_taxi.isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Campo vacío")
+                    .setMessage("Por favor ingresa la placa.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+
+        TaxiRepository taxiRepository = new TaxiRepository(this, view);
+        Taxi taxi = taxiRepository.getTaxiByPLaca(placa_taxi);
+
+        if (taxi != null) {
+            etmarcaTaxi.setText(taxi.getMarca_taxi());
+            etplacaTaxi.setText(taxi.getPlaca_taxi());
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Taxi no encontrado")
+                    .setMessage("No se encontró un taxi con la placa ingresada.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        }
     }
 
     private void crearTaxi(View view) {
@@ -75,8 +102,8 @@ public class ModuloTaxi extends AppCompatActivity {
     private void referencia() {
         this.etmarcaTaxi = findViewById(R.id.etmarcaTaxi);
         this.btnCrearTaxi = findViewById(R.id.btnCrearTaxi);
-        this.etplacaTaxi = findViewById(R.id.etplacaTaxi);
-        this.btnBuscarConductor = findViewById(R.id.btnBuscarConductor);
+        this.etplacaTaxi = findViewById(R.id.etutilidadTaxi);
+        this.btnBuscarTaxi = findViewById(R.id.btnBuscarTaxi);
         this.context = this;
     }
 }
