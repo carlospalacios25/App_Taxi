@@ -65,15 +65,4 @@ public class TaxiRepository {
             return null;
         }
     }
-
-    /*public boolean conductorExists(long cedula_con) {
-        try {
-            SQLiteDatabase db = dataBaseTaxi.getReadableDatabase();
-            Cursor cursor = db.rawQuery("SELECT cedula_con FROM conductor WHERE cedula_con = ?",
-                    new String[]{String.valueOf(cedula_con)});
-            return cursor.getCount() > 0;
-        } catch (Exception e) {
-            return false;
-        }
-    }*/
 }
