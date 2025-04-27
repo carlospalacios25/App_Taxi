@@ -18,7 +18,7 @@
     <string name="etgastosCom">Ingresar Gasto</string>
     <string name="etigresoscom">Resgistro Ingreso</string>
     <string name="etutilidadTaxi">Utilidad dia</string>
-    <string name="etfechaCom">Fecha de Resgistro</string>
+    <string name="etfechaCom">Fecha (YYYY-MM-DD)</string>
     <string name="etdescripcionCom">Descripcion</string>
     <string name="etcedulaCon">Cedula de Conductor</string>
     <string name="etPlacaTaxi">Placa Taxi</string>

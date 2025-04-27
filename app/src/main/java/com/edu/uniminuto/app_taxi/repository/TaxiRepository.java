@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
-import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.google.android.material.snackbar.Snackbar;
 

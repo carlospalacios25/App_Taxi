@@ -14,7 +14,7 @@ public class Utilidad{
 
     public Utilidad() {
     }
-    public Utilidad(double gastos_com, double igresos_com, double utilidad_com, Date fecha_com, String descripcion_com, String placa_taxi, long cedula_con) {
+    public Utilidad(double gastos_com, double igresos_com, Date fecha_com, String descripcion_com, String placa_taxi, long cedula_con) {
         this.gastos_com = gastos_com;
         this.igresos_com = igresos_com;
         this.utilidad_com = utilidad_com;
@@ -49,13 +49,8 @@ public class Utilidad{
     }
 
     public double getUtilidad_com() {
-        return utilidad_com;
+        return igresos_com - gastos_com;
     }
-
-    public void setUtilidad_com(double utilidad_com) {
-        this.utilidad_com = utilidad_com;
-    }
-
     public Date getFecha_com() {
         return fecha_com;
     }
