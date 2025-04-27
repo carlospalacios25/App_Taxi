@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.edu.uniminuto.app_taxi.entities.Utilidad;
 import com.edu.uniminuto.app_taxi.repository.UtilidadRepository;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,7 +22,7 @@ import java.util.Date;
 public class ModuloUtilidad extends AppCompatActivity {
     private EditText etgastosCom;
     private EditText etigresoscom;
-    private EditText etutilidadTaxi;  // Agregado de nuevo
+    private EditText etutilidadTaxi;
     private EditText etfechaCom;
     private EditText etdescripcionCom;
     private EditText etPlacaTaxi;
@@ -36,6 +35,7 @@ public class ModuloUtilidad extends AppCompatActivity {
     private String placa_taxi;
     private long cedula_con;
     private View view;
+    private Button btnBuscarU;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,15 +44,15 @@ public class ModuloUtilidad extends AppCompatActivity {
         setContentView(R.layout.compra);
 
         this.reference();
-        this.setupListeners();  // Configurar los listeners
+        this.setupListeners();
         this.btnRegistrarGi.setOnClickListener(this::crearUtilidad);
+        this.btnBuscarU.setOnClickListener(this::buscarUtilidad);
     }
     private void buscarUtilidad(View view) {
         String fechaStr = etfechaCom.getText().toString().trim();
         String placa_taxi = etPlacaTaxi.getText().toString().trim();
         String cedulaStr = etcedulaCon.getText().toString().trim();
 
-        // Validar campos vacíos
         if (fechaStr.isEmpty() || placa_taxi.isEmpty() || cedulaStr.isEmpty()) {
             new AlertDialog.Builder(this)
                     .setTitle("Campos vacíos")
@@ -63,7 +63,6 @@ public class ModuloUtilidad extends AppCompatActivity {
         }
 
         try {
-            // Parsear la fecha
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date fecha = sdf.parse(fechaStr);
             long cedula = Long.parseLong(cedulaStr);
@@ -203,5 +202,6 @@ public class ModuloUtilidad extends AppCompatActivity {
         this.etPlacaTaxi = findViewById(R.id.etPlacaTaxi);
         this.etcedulaCon = findViewById(R.id.etcedulaCon);
         this.btnRegistrarGi = findViewById(R.id.btnRegistrarGi);
+        this.btnBuscarU = findViewById(R.id.btnBuscarU);
     }
 }
