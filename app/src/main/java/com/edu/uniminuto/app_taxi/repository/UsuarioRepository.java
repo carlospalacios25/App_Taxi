@@ -42,10 +42,10 @@ public class UsuarioRepository {
             Snackbar.make(this.view, "Error al registrar el taxi: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
         }
     }
-    public Usuario getTaxiByPLaca(String usuarioU){
+    public Usuario getUsuarioByU(String usuarioU){
         try {
             SQLiteDatabase dataBaseSql = dataBaseUsuario.getReadableDatabase();
-            String query = "SELECT * FROM usuario WHERE nombreUsuario = ?" ;
+            String query = "SELECT * FROM usuarios WHERE nombreUsuario = ?" ;
             Cursor cursor = dataBaseSql.rawQuery(query, new String[]{String.valueOf(usuarioU)});
             Usuario usuarioCo = new Usuario();
             if (cursor.moveToFirst()){

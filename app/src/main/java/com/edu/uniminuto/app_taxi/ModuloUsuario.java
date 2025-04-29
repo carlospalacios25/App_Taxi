@@ -96,14 +96,14 @@ public class ModuloUsuario extends AppCompatActivity {
         }
 
         UsuarioRepository usuarioRepository = new UsuarioRepository(this, view);
-        Usuario usuario = usuarioRepository.getTaxiByPLaca(usuarioBus);
+        Usuario usuario = usuarioRepository.getUsuarioByU(usuarioBus);
 
         if (usuario != null) {
             etUsuario.setText(usuario.getUsuario());
             etClave.setText(usuario.getClave());
         } else {
             new AlertDialog.Builder(this)
-                    .setTitle("Taxi no encontrado")
+                    .setTitle("Usuario no encontrado")
                     .setMessage("No se encontró el usuario ingresado.")
                     .setPositiveButton("Aceptar", null)
                     .show();
