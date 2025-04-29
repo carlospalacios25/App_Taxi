@@ -73,6 +73,7 @@ public class UtilidadRepository {
             return false;
         }
     }
+
     public Utilidad getUtilidadByParams(Date fecha, String placa, long cedula) {
         try {
             SQLiteDatabase dataBaseSql = dataBaseUtilidad.getReadableDatabase();

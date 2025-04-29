@@ -29,6 +29,8 @@
     <string name="tvRegistro">Resgitro de Usuario</string>
     <string name="etUsuario">Nombre Usuario</string>
     <string name="etClave">Clave Usuario</string>
-    <string name="btnRegistroUs">Buscar Usuario</string>
+    <string name="btnRegistroUs">Registro Usuario</string>
+    <string name="etConfClave">Confirmacion Clave</string>
+    <string name="btnBuscarUs">Buscar Usuario</string>
 
 </resources>

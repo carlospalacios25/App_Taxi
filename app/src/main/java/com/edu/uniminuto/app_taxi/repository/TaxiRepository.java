@@ -38,10 +38,6 @@ public class TaxiRepository {
         } catch (SQLException e) {
             Log.e("TaxiRepository", "insertTaxi: " + e.getMessage());
             Snackbar.make(this.view, "Error al registrar el taxi: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
-        } finally {
-            if (databaseSql != null && databaseSql.isOpen()) {
-                databaseSql.close();
-            }
         }
     }
     public Taxi getTaxiByPLaca(String placa){

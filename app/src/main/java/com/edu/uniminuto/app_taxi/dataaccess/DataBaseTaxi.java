@@ -51,7 +51,7 @@ public class DataBaseTaxi extends SQLiteOpenHelper {
 
             final String CREATE_TABLE_USER = "CREATE TABLE " + TABLE_USUARIOS + " (" +
                     "idUsuario INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "nombreUsuario VARCHAR(100) NOT NULL, " +
+                    "nombreUsuario VARCHAR(100) NOT NULL UNIQUE, " +
                     "claveUsuario VARCHAR(252) NOT NULL)";
 
             db.execSQL(CREATE_TABLE_USER);
