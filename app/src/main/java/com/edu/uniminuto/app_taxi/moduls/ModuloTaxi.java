@@ -1,4 +1,4 @@
-package com.edu.uniminuto.app_taxi;
+package com.edu.uniminuto.app_taxi.moduls;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edu.uniminuto.app_taxi.R;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
 

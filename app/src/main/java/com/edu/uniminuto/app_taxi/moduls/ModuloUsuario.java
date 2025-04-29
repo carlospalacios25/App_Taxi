@@ -1,4 +1,4 @@
-package com.edu.uniminuto.app_taxi;
+package com.edu.uniminuto.app_taxi.moduls;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,9 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.edu.uniminuto.app_taxi.entities.Taxi;
+import com.edu.uniminuto.app_taxi.R;
 import com.edu.uniminuto.app_taxi.entities.Usuario;
-import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
 import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
 
 import java.nio.charset.StandardCharsets;
@@ -27,6 +26,10 @@ public class ModuloUsuario extends AppCompatActivity {
     private String clave;
     private Button btnRegistroUs;
     private Button btnBuscarUs;
+    private EditText etConfClave;
+    private String usuarioBus;
+    private String usuarioConBus;
+    private boolean validacionClave;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +42,17 @@ public class ModuloUsuario extends AppCompatActivity {
         this.btnBuscarUs.setOnClickListener(this::buscarUsuario);
     }
     private void crearUsuario(View view) {
+        usuarioBus = etClave.getText().toString().trim();
+        usuarioConBus = etConfClave.getText().toString().trim();
+        validacionClave = usuarioBus.equals(usuarioConBus);
+        if (validacionClave != true) {
+            new AlertDialog.Builder(this)
+                    .setTitle("La Contraseña")
+                    .setMessage("Las contraseñas no coinciden")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
         if (etUsuario.getText().toString().trim().isEmpty() ||
                 etClave.getText().toString().trim().isEmpty()) {
             new AlertDialog.Builder(this)
@@ -67,6 +81,7 @@ public class ModuloUsuario extends AppCompatActivity {
         }
     }
     public static String claveEncriptada(String clave) {
+
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = digest.digest(clave.getBytes(StandardCharsets.UTF_8));
@@ -85,7 +100,6 @@ public class ModuloUsuario extends AppCompatActivity {
     }
     private void buscarUsuario(View view) {
         String usuarioBus = etUsuario.getText().toString().trim();
-
         if (usuarioBus.isEmpty()) {
             new AlertDialog.Builder(this)
                     .setTitle("Campo vacío")
@@ -110,20 +124,20 @@ public class ModuloUsuario extends AppCompatActivity {
         }
     }
     private void limpiarCampos() {
-        etUsuario.setText("");
-        etClave.setText("");
+        this.etUsuario.setText("");
+        this.etClave.setText("");
+        this.etConfClave.setText("");
     }
     private void capData() {
-
         this.usuarios = etUsuario.getText().toString().trim();
         this.clave = etClave.getText().toString().trim();
-
     }
     private void reference(){
         this.etUsuario = findViewById(R.id.etUsuario);
         this.etClave = findViewById(R.id.etClave);
         this.btnRegistroUs = findViewById(R.id.btnRegistroUs);
         this.btnBuscarUs = findViewById(R.id.btnBuscarUs);
+        this.etConfClave = findViewById(R.id.etConfClave);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.edu.uniminuto.app_taxi;
+package com.edu.uniminuto.app_taxi.moduls;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edu.uniminuto.app_taxi.R;
 import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.repository.ConductorRepository;
 
@@ -145,7 +146,6 @@ public class ModuloConductor extends AppCompatActivity {
         this.etDireccionCon = findViewById(R.id.etdescripcionCom);
         this.btnCrearCon = findViewById(R.id.btnRegistroUs);
         this.btnBuscar = findViewById(R.id.btnBuscarU);
-        this.lvListar = findViewById(R.id.lvListar);
         this.context = this;
         this.direccionCon = etDireccionCon.getText().toString();
 

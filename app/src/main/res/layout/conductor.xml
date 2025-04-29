@@ -106,12 +106,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etdescripcionCom" />
 
-    <ListView
-        android:id="@+id/lvListar"
-        android:layout_width="406dp"
-        android:layout_height="142dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBuscarU" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ModuloConductor"> </activity>
-        <activity android:name=".ModuloTaxi"> </activity>
-        <activity android:name=".ModuloUtilidad"> </activity>
-        <activity android:name=".ModuloUsuario"> </activity>
+        <activity android:name=".moduls.ModuloConductor"> </activity>
+        <activity android:name=".moduls.ModuloTaxi"> </activity>
+        <activity android:name=".moduls.ModuloUtilidad"> </activity>
+        <activity android:name=".moduls.ModuloUsuario"> </activity>
 
     </application>
 
