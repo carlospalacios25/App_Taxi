@@ -196,12 +196,12 @@ public class ModuloUtilidad extends AppCompatActivity {
     private void reference() {
         this.etgastosCom = findViewById(R.id.etgastosCom);
         this.etigresoscom = findViewById(R.id.etigresoscom);
-        this.etutilidadTaxi = findViewById(R.id.etutilidadTaxi);
+        this.etutilidadTaxi = findViewById(R.id.etClave);
         this.etfechaCom = findViewById(R.id.etfechaCom);
         this.etdescripcionCom = findViewById(R.id.etdescripcionCom);
         this.etPlacaTaxi = findViewById(R.id.etPlacaTaxi);
         this.etcedulaCon = findViewById(R.id.etcedulaCon);
-        this.btnRegistrarGi = findViewById(R.id.btnRegistrarGi);
+        this.btnRegistrarGi = findViewById(R.id.btnRegistroUs);
         this.btnBuscarU = findViewById(R.id.btnBuscarU);
     }
 }

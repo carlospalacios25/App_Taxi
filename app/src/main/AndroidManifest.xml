@@ -24,6 +24,7 @@
         <activity android:name=".ModuloConductor"> </activity>
         <activity android:name=".ModuloTaxi"> </activity>
         <activity android:name=".ModuloUtilidad"> </activity>
+        <activity android:name=".ModuloUsuario"> </activity>
 
     </application>
 

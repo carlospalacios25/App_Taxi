@@ -26,4 +26,9 @@
     <string name="btnRegistrarGi">Resgistrar</string>
     <string name="btnBuscarU">Buscar Registro</string>
 
+    <string name="tvRegistro">Resgitro de Usuario</string>
+    <string name="etUsuario">Nombre Usuario</string>
+    <string name="etClave">Clave Usuario</string>
+    <string name="btnRegistroUs">Buscar Usuario</string>
+
 </resources>

@@ -140,10 +140,10 @@ public class ModuloConductor extends AppCompatActivity {
     private void referencia(){
         this.etCedulaCon = findViewById(R.id.etgastosCom);
         this.etNombreCon = findViewById(R.id.etigresoscom);
-        this.etApellidoCon = findViewById(R.id.etutilidadTaxi);
+        this.etApellidoCon = findViewById(R.id.etClave);
         this.etTelefonoCon = findViewById(R.id.etfechaCom);
         this.etDireccionCon = findViewById(R.id.etdescripcionCom);
-        this.btnCrearCon = findViewById(R.id.btnRegistrarGi);
+        this.btnCrearCon = findViewById(R.id.btnRegistroUs);
         this.btnBuscar = findViewById(R.id.btnBuscarU);
         this.lvListar = findViewById(R.id.lvListar);
         this.context = this;

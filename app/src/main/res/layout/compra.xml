@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvTituloCompra"
+        android:id="@+id/tvRegistro"
         android:layout_width="338dp"
         android:layout_height="35dp"
         android:layout_marginTop="52dp"
@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTituloCompra" />
+        app:layout_constraintTop_toBottomOf="@+id/tvRegistro" />
 
     <EditText
         android:id="@+id/etigresoscom"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etgastosCom" />
 
     <EditText
-        android:id="@+id/etutilidadTaxi"
+        android:id="@+id/etClave"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etutilidadTaxi" />
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
 
     <EditText
         android:id="@+id/etdescripcionCom"
@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etdescripcionCom" />
 
     <Button
-        android:id="@+id/btnRegistrarGi"
+        android:id="@+id/btnRegistroUs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

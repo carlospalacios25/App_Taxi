@@ -85,7 +85,6 @@ public class UtilidadRepository {
                 Utilidad utilidad = new Utilidad();
                 utilidad.setGastos_com(cursor.getDouble(1));
                 utilidad.setIgresos_com(cursor.getDouble(2));
-                // utilidad_com se calcula automáticamente en getUtilidad_com()
                 utilidad.setFecha_com(sdf.parse(cursor.getString(4)));
                 utilidad.setDescripcion_com(cursor.getString(5));
                 utilidad.setPlaca_taxi(cursor.getString(6));
