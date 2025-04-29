@@ -69,7 +69,6 @@ public class ModuloConductor extends AppCompatActivity {
         Conductor conductor = new Conductor(cedulaCon, nombreCon, apellidoCon, telefonoCon, direccionCon);
         ConductorRepository conductorRepository = new ConductorRepository(this, view);
         conductorRepository.insertConductor(conductor);
-        listarConductores(view);
         limpiarCampos();
     }
 
@@ -129,15 +128,6 @@ public class ModuloConductor extends AppCompatActivity {
         }
     }
 
-    private void listarConductores(View view) {
-        ConductorRepository conductorRepository = new ConductorRepository(this, view);
-        ArrayList<Conductor> list= conductorRepository.getConductorList();
-        ArrayAdapter<Conductor> arrayAdapter = new ArrayAdapter<>
-                (context, android.R.layout.simple_list_item_1, list);
-
-        this.lvListar.setAdapter(arrayAdapter);
-
-    }
     private void referencia(){
         this.etCedulaCon = findViewById(R.id.etgastosCom);
         this.etNombreCon = findViewById(R.id.etigresoscom);
