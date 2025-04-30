@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.edu.uniminuto.app_taxi.moduls.ModuloConductor;
+import com.edu.uniminuto.app_taxi.moduls.ModuloMenu;
 import com.edu.uniminuto.app_taxi.moduls.ModuloTaxi;
 import com.edu.uniminuto.app_taxi.moduls.ModuloUsuario;
 import com.edu.uniminuto.app_taxi.moduls.ModuloUtilidad;
@@ -19,9 +20,7 @@ import com.edu.uniminuto.app_taxi.moduls.ModuloUtilidad;
 public class MainActivity extends AppCompatActivity {
     private Button prueba;
     private Intent intent;
-    private Button btnIngresar2;
-    private Button btnGastos;
-    private Button btnUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,35 +33,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         this.Referencia();
-        this.prueba.setOnClickListener(this::OpenModConductor);
-        this.btnIngresar2.setOnClickListener(this::OpenModTaxi);
-        this.btnGastos.setOnClickListener(this::OpenModGasto);
-        this.btnUsuario.setOnClickListener(this::OpenUsuario);
+        this.prueba.setOnClickListener(this::OpenMenu);
 
     }
 
-    private void OpenModGasto(View view) {
-        this.intent = new Intent(MainActivity.this, ModuloUtilidad.class);
-        startActivityForResult(intent, 1);
-    }
-
-    private void OpenModConductor(View view) {
-        this.intent = new Intent(MainActivity.this, ModuloConductor.class);
-        startActivityForResult(intent, 1);
-    }
-    private void OpenModTaxi(View view) {
-        this.intent = new Intent(MainActivity.this, ModuloTaxi.class);
-        startActivityForResult(intent, 1);
-    }
-    private void OpenUsuario(View view) {
-        this.intent = new Intent(MainActivity.this, ModuloUsuario.class);
+    private void OpenMenu(View view) {
+        this.intent = new Intent(MainActivity.this, ModuloMenu.class);
         startActivityForResult(intent, 1);
     }
 
     private void Referencia(){
-        this.btnUsuario = findViewById(R.id.btnUsuario);
         this.prueba = findViewById(R.id.btnIngresar);
-        this.btnIngresar2 =findViewById(R.id.btnIngresar2);
-        this.btnGastos =findViewById(R.id.btnGastos);
     }
 }
