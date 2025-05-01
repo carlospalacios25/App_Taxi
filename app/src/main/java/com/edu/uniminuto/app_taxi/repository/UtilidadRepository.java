@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
+import com.edu.uniminuto.app_taxi.entities.Usuario;
 import com.edu.uniminuto.app_taxi.entities.Utilidad;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -96,6 +97,42 @@ public class UtilidadRepository {
         } catch (Exception e) {
             Log.e("UtilidadRepository", "getUtilidadByParams: " + e.getMessage());
             return null;
+        }
+    }
+    public boolean updateUtilidad(Utilidad utilidad) {
+        SQLiteDatabase dataBaseSql = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaFormatted = sdf.format(utilidad.getFecha_com());
+
+            dataBaseSql = dataBaseUtilidad.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+            values.put("gastos_com", utilidad.getGastos_com());
+            values.put("igresos_com", utilidad.getIgresos_com());
+            values.put("utilidad_com", utilidad.getUtilidad_com());
+            values.put("fecha_com", fechaFormatted);
+            values.put("descripcion_com", utilidad.getDescripcion_com());
+            values.put("placa_taxi", utilidad.getPlaca_taxi());
+            values.put("cedula_con", utilidad.getCedula_con());
+
+            int rowsUpdated = dataBaseSql.update(
+                    "registroDiario",
+                    values,
+                    "fecha_com = ? AND placa_taxi = ? AND cedula_con = ?",
+                    new String[]{
+                            fechaFormatted,
+                            utilidad.getPlaca_taxi(),
+                            String.valueOf(utilidad.getCedula_con())
+                    }
+            );
+
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            Log.e("UtilidadRepository", "Error al actualizar registro: " + e.getMessage(), e);
+            e.printStackTrace();
+            Snackbar.make(view, "Error al actualizar el registro: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            return false;
         }
     }
 }

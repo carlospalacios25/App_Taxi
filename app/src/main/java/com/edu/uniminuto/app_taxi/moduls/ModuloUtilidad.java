@@ -13,7 +13,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.edu.uniminuto.app_taxi.R;
+import com.edu.uniminuto.app_taxi.entities.Usuario;
 import com.edu.uniminuto.app_taxi.entities.Utilidad;
+import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
 import com.edu.uniminuto.app_taxi.repository.UtilidadRepository;
 
 import java.text.ParseException;
@@ -37,6 +39,7 @@ public class ModuloUtilidad extends AppCompatActivity {
     private long cedula_con;
     private View view;
     private Button btnBuscarU;
+    private Button btnModificarUt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +51,7 @@ public class ModuloUtilidad extends AppCompatActivity {
         this.setupListeners();
         this.btnRegistrarGi.setOnClickListener(this::crearUtilidad);
         this.btnBuscarU.setOnClickListener(this::buscarUtilidad);
+        this.btnModificarUt.setOnClickListener(this::modificarUtilidad);
     }
     private void buscarUtilidad(View view) {
         String fechaStr = etfechaCom.getText().toString().trim();
@@ -173,6 +177,45 @@ public class ModuloUtilidad extends AppCompatActivity {
             etutilidadTaxi.setText("0");
         }
     }
+    private void modificarUtilidad(View view) {
+        if (etgastosCom.getText().toString().trim().isEmpty() ||
+                etigresoscom.getText().toString().trim().isEmpty() ||
+                etfechaCom.getText().toString().trim().isEmpty() ||
+                etdescripcionCom.getText().toString().trim().isEmpty() ||
+                etPlacaTaxi.getText().toString().trim().isEmpty() ||
+                etcedulaCon.getText().toString().trim().isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Campos vacíos")
+                    .setMessage("No puedes dejar campos vacíos")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+
+        try {
+            capData();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        Utilidad utilidad = new Utilidad(gastos_com, igresos_com, fecha_com, descripcion_com, placa_taxi, cedula_con);
+        UtilidadRepository utilidadRepository = new UtilidadRepository(this, view);
+        boolean result = utilidadRepository.updateUtilidad(utilidad);
+        if (result) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Registro actualizado")
+                    .setMessage("Id de regstro actualizado")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            limpiarCampos();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("No se encontró Resgistro")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        }
+    }
 
     private void limpiarCampos() {
         this.etgastosCom.setText("");
@@ -204,5 +247,6 @@ public class ModuloUtilidad extends AppCompatActivity {
         this.etcedulaCon = findViewById(R.id.etcedulaCon);
         this.btnRegistrarGi = findViewById(R.id.btnRegistroUs);
         this.btnBuscarU = findViewById(R.id.btnBuscarU);
+        this.btnModificarUt = findViewById(R.id.btnModificarUt);
     }
 }

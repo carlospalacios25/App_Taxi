@@ -7,15 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnModificarUt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btnModificarUt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistroUs" />
+
     <TextView
         android:id="@+id/tvRegistro"
         android:layout_width="338dp"
         android:layout_height="35dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:text="@string/tvTituloCompra"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,10 +126,10 @@
         android:id="@+id/btnRegistroUs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/btnCrearCon"
+        android:layout_marginTop="36dp"
+        android:text="@string/btnRegistroUs"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
 
@@ -126,10 +137,10 @@
         android:id="@+id/btnBuscarU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="@string/btnBuscarU"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
 

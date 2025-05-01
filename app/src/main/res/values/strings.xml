@@ -36,11 +36,17 @@
     <string name="etConfClave">Confirmacion Clave</string>
     <string name="btnBuscarUs">Buscar Usuario</string>
 
-    <string name="btnMconductor">Modulo Conductor</string>
     <string name="btnMtaxi">Modulo Taxi</string>
     <string name="btnGastos">Modulo Utilidad</string>
     <string name="btnUsuario">Modulo Usuario</string>
     <string name="btnModificarTaxi">Modificar Taxi</string>
     <string name="btnModificarUsu">Modificar Usuario</string>
+    <string name="btnModificarUt">Modificar Usuario</string>
+    <string name="btnIngresar">Iniciar Seccion</string>
+    <string name="btnRegistro">Registrarse</string>
+    <string name="etUsuariInciar">Ingresa el Usuario</string>
+    <string name="etClaveIniciar">Ingresa la Contraseña</string>
+    <string name="btnMconductor">>Modulo Conductor</string>
+
 
 </resources>

@@ -79,4 +79,18 @@ public class UsuarioRepository {
             return false;
         }
     }
+    public boolean loginUsuario(String usuarioU,String clave){
+        SQLiteDatabase dataBaseSql = dataBaseUsuario.getReadableDatabase();
+        try {
+            String query = "SELECT * FROM usuarios WHERE nombreUsuario = ? AND claveUsuario = ?";
+            Cursor cursor= dataBaseSql.rawQuery(query, new String[]{usuarioU, clave});
+            boolean isAuthenticated = cursor.getCount() > 0;
+            //Log.d("UsuarioRepository", "Autenticación: " + isAuthenticated + " para usuario: " + usuarioU);
+            return isAuthenticated;
+        } catch (SQLException e) {
+            Log.e("UsuarioRepository", "Error al autenticar usuario: " + e.getMessage(), e);
+            Snackbar.make(view, "Error al autenticar: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            return false;
+        }
+    }
 }
