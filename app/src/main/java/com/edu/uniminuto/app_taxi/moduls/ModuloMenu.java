@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.edu.uniminuto.app_taxi.R;
 
 public class ModuloMenu extends AppCompatActivity {
-    private Button btnMtaxi;
-    private Intent intent;
     private Button btnMconductor;
+    private Intent intent;
+    private Button btnMtaxi;
     private Button btnGastos;
     private Button btnUsuario;
 
@@ -25,18 +25,15 @@ public class ModuloMenu extends AppCompatActivity {
 
 
         this.Referencia();
-        this.btnMtaxi.setOnClickListener(this::OpenModTaxi);
-        this.btnMconductor.setOnClickListener(this::OpenModConductor);
-        this.btnGastos.setOnClickListener(this::OpenModGasto);
-        this.btnUsuario.setOnClickListener(this::OpenUsuario);
-
+        btnMconductor.setOnClickListener(this::OpenModConductor);
+        btnMtaxi.setOnClickListener(this::OpenModTaxi);
+        btnGastos.setOnClickListener(this::OpenModGasto);
+        btnUsuario.setOnClickListener(this::OpenUsuario);
     }
-
     private void OpenModGasto(View view) {
         this.intent = new Intent(ModuloMenu.this, ModuloUtilidad.class);
         startActivityForResult(intent, 1);
     }
-
     private void OpenModConductor(View view) {
         this.intent = new Intent(ModuloMenu.this, ModuloConductor.class);
         startActivityForResult(intent, 1);

@@ -2,4 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="taxi">#FFC107</color>
+    <color name="titulos">#333333</color>
+    <color name="regitro">#4CAF50</color>
+    <color name="buscar">#2196F3</color>
+    <color name="modificar">#DCCB30</color>
+    <color name="eliminar">#DC3030</color>
+
 </resources>

@@ -10,6 +10,7 @@
     <string name="btnBuscar">Buscar Conductor</string>
     <string name="btnModificarCon">Modificar Conductor</string>
     <string name="btnEliminarCon">Eliminar Conductor</string>
+    <string name="tvTitle">Login</string>
 
 
     <string name="tvTituloTaxi">Crear Taxi</string>
@@ -29,7 +30,7 @@
     <string name="btnRegistrarGi">Resgistrar</string>
     <string name="btnBuscarU">Buscar Registro</string>
 
-    <string name="tvRegistro">Resgitro de Usuario</string>
+    <string name="tvRegistro">Resgistro de Usuario</string>
     <string name="etUsuario">Nombre Usuario</string>
     <string name="etClave">Clave Usuario</string>
     <string name="btnRegistroUs">Registro Usuario</string>

@@ -13,9 +13,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.edu.uniminuto.app_taxi.R;
-import com.edu.uniminuto.app_taxi.entities.Usuario;
 import com.edu.uniminuto.app_taxi.entities.Utilidad;
-import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
 import com.edu.uniminuto.app_taxi.repository.UtilidadRepository;
 
 import java.text.ParseException;
@@ -240,12 +238,12 @@ public class ModuloUtilidad extends AppCompatActivity {
     private void reference() {
         this.etgastosCom = findViewById(R.id.etCedulaCon);
         this.etigresoscom = findViewById(R.id.etNombreCon);
-        this.etutilidadTaxi = findViewById(R.id.etApellidoCon);
+        this.etutilidadTaxi = findViewById(R.id.etutilidadTaxi);
         this.etfechaCom = findViewById(R.id.etTelefonoCon);
         this.etdescripcionCom = findViewById(R.id.etDireccionCon);
         this.etPlacaTaxi = findViewById(R.id.etPlacaTaxi);
         this.etcedulaCon = findViewById(R.id.etcedulaCon);
-        this.btnRegistrarGi = findViewById(R.id.btnRegistroUs);
+        this.btnRegistrarGi = findViewById(R.id.btnCrearTaxi);
         this.btnBuscarU = findViewById(R.id.btnBuscarU);
         this.btnModificarUt = findViewById(R.id.btnModificarUt);
     }

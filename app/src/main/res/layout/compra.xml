@@ -5,18 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/edit_text_background"
+    tools:context=".moduls.ModuloTaxi">
 
-    <Button
-        android:id="@+id/btnModificarUt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/btnModificarUt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistroUs" />
 
     <TextView
         android:id="@+id/tvRegistro"
@@ -24,6 +15,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="32dp"
         android:text="@string/tvTituloCompra"
+        android:textColor="@color/titulos"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.219"
@@ -31,12 +23,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etCedulaCon"
+        android:id="@+id/etgastosCom"
         android:layout_width="312dp"
         android:layout_height="54dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/etgastosCom"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.292"
@@ -44,57 +43,85 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegistro" />
 
     <EditText
-        android:id="@+id/etNombreCon"
+        android:id="@+id/etigresoscom"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/etigresoscom"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCedulaCon" />
+        app:layout_constraintTop_toBottomOf="@+id/etgastosCom"/>
 
     <EditText
-        android:id="@+id/etApellidoCon"
+        android:id="@+id/etutilidadTaxi"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/etutilidadTaxi"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:enabled="false"
         android:inputType="number|numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreCon" />
+        app:layout_constraintTop_toBottomOf="@+id/etigresoscom" />
 
     <EditText
-        android:id="@+id/etTelefonoCon"
+        android:id="@+id/etfechaCom"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="@string/etfechaCom"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:inputType="datetime|date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etApellidoCon" />
+        app:layout_constraintTop_toBottomOf="@+id/etutilidadTaxi" />
 
     <EditText
-        android:id="@+id/etDireccionCon"
+        android:id="@+id/etdescripcionCom"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/etdescripcionCom"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTelefonoCon" />
+        app:layout_constraintTop_toBottomOf="@+id/etfechaCom" />
 
     <EditText
         android:id="@+id/etcedulaCon"
@@ -103,6 +130,13 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/etcedulaCon"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
@@ -113,35 +147,62 @@
         android:id="@+id/etPlacaTaxi"
         android:layout_width="314dp"
         android:layout_height="53dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/etPlacaTaxi"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edit_text_background"
+        android:textColor="@color/black"
+        android:drawablePadding="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintHorizontal_bias="0.297"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDireccionCon" />
+        app:layout_constraintTop_toBottomOf="@+id/etdescripcionCom" />
 
     <Button
         android:id="@+id/btnRegistroUs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="36dp"
+        android:backgroundTint="@color/regitro"
         android:text="@string/btnRegistroUs"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.14"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
 
     <Button
         android:id="@+id/btnBuscarU"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="126dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="56dp"
+        android:backgroundTint="@color/buscar"
         android:text="@string/btnBuscarU"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.753"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etcedulaCon" />
+
+    <Button
+        android:id="@+id/btnModificarUt"
+        android:layout_width="139dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/modificar"
+        android:text="@string/btnModificarUt"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistroUs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

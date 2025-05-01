@@ -3,9 +3,7 @@ package com.edu.uniminuto.app_taxi.moduls;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -18,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.edu.uniminuto.app_taxi.R;
 import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.repository.ConductorRepository;
-
-import java.util.ArrayList;
 
 public class ModuloConductor extends AppCompatActivity {
     private Context context;
@@ -207,7 +203,7 @@ public class ModuloConductor extends AppCompatActivity {
         this.etApellidoCon = findViewById(R.id.etApellidoCon);
         this.etTelefonoCon = findViewById(R.id.etTelefonoCon);
         this.etDireccionCon = findViewById(R.id.etDireccionCon);
-        this.btnCrearCon = findViewById(R.id.btnRegistroUs);
+        this.btnCrearCon = findViewById(R.id.btnCrearTaxi);
         this.btnBuscar = findViewById(R.id.btnBuscarU);
         this.btnModificarCon = findViewById(R.id.btnModificarCon);
         this.btnEliminarCon = findViewById(R.id.btnEliminarCon);

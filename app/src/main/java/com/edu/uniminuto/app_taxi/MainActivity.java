@@ -13,18 +13,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.edu.uniminuto.app_taxi.entities.Usuario;
 import com.edu.uniminuto.app_taxi.moduls.ModuloMenu;
+import com.edu.uniminuto.app_taxi.moduls.ModuloUsuario;
 import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
 
 public class MainActivity extends AppCompatActivity {
-    private Button prueba;
+    private Button btnIngresar;
+    private Button btnRegistro;
     private Intent intent;
     private EditText etUsuariInciar;
     private EditText etClaveIniciar;
     private String usuarioIniciar;
     private String claveIniciar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,25 +37,21 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         this.Referencia();
-        this.prueba.setOnClickListener(this::iniciarSesion);
-
+        this.btnIngresar.setOnClickListener(this::iniciarSesion);
+        this.btnRegistro.setOnClickListener(this::registroUsuario);
     }
 
-    private void OpenMenu(View view) {
-        this.intent = new Intent(MainActivity.this, ModuloMenu.class);
+    private void registroUsuario(View view) {
+        this.intent = new Intent(MainActivity.this, ModuloUsuario.class);
         startActivityForResult(intent, 1);
     }
+
     private void iniciarSesion(View view) {
-
-        String usuario = etUsuariInciar.getText().toString().trim();
-        String clave = etClaveIniciar.getText().toString().trim();
-
-        if (usuario.isEmpty() || clave.isEmpty()) {
+        capData();
+        if (usuarioIniciar.isEmpty() || claveIniciar.isEmpty()) {
             Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        this.capData();
         UsuarioRepository usuarioRepository = new UsuarioRepository(this, view);
         boolean result = usuarioRepository.loginUsuario(usuarioIniciar, claveIniciar);
         if (result) {
@@ -63,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
             this.intent = new Intent(MainActivity.this, ModuloMenu.class);
             startActivity(intent);
             finish();
-            //startActivityForResult(intent, 1);
         } else {
             Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
         }
@@ -73,9 +68,10 @@ public class MainActivity extends AppCompatActivity {
         this.claveIniciar = etClaveIniciar.getText().toString().trim();
     }
 
-    private void Referencia(){
-        this.prueba = findViewById(R.id.btnMconductor);
-        this.etUsuariInciar= findViewById(R.id.etUsuariInciar);
-        this.etClaveIniciar= findViewById(R.id.etClaveIniciar);
+    private void Referencia() {
+        this.btnIngresar = findViewById(R.id.btnMconductor);
+        this.btnRegistro = findViewById(R.id.btnRegistro);
+        this.etUsuariInciar = findViewById(R.id.etUsuariInciar);
+        this.etClaveIniciar = findViewById(R.id.etClaveIniciar);
     }
 }

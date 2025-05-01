@@ -12,9 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.edu.uniminuto.app_taxi.R;
-import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
-import com.edu.uniminuto.app_taxi.repository.ConductorRepository;
 import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
 
 public class ModuloTaxi extends AppCompatActivity {
@@ -143,9 +141,9 @@ public class ModuloTaxi extends AppCompatActivity {
     }
 
     private void referencia() {
-        this.etmarcaTaxi = findViewById(R.id.etUsuario);
-        this.btnCrearTaxi = findViewById(R.id.btnRegistroUs);
-        this.etplacaTaxi = findViewById(R.id.etApellidoCon);
+        this.etmarcaTaxi = findViewById(R.id.etmarcaTaxi);
+        this.btnCrearTaxi = findViewById(R.id.btnCrearTaxi);
+        this.etplacaTaxi = findViewById(R.id.etplacaTaxi);
         this.btnBuscarTaxi = findViewById(R.id.btnBuscarU);
         this.btnModificarTaxi = findViewById(R.id.btnModificarTaxi);
         this.context = this;
