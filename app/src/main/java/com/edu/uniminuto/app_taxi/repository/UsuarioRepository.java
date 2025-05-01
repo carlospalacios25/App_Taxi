@@ -70,7 +70,7 @@ public class UsuarioRepository {
             values.put("usuario", usuario.getUsuario());
             values.put("clave", usuario.getClave());
 
-            int rowsUpdated = dataBaseSql.update("usuarios", values, "usuario = ?", new String[]{String.valueOf(usuario.getUsuario())});
+            int rowsUpdated = dataBaseSql.update("usuarios", values, "nombreUsuario = ?", new String[]{String.valueOf(usuario.getUsuario())});
 
             return rowsUpdated > 0;
         } catch (SQLException e) {

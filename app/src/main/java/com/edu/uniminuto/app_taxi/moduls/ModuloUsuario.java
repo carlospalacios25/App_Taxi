@@ -28,6 +28,7 @@ public class ModuloUsuario extends AppCompatActivity {
     private String clave;
     private Button btnRegistroUs;
     private Button btnBuscarUs;
+    private Button btnModificarUsu;
     private EditText etConfClave;
     private String usuarioBus;
     private String usuarioConBus;
@@ -42,6 +43,7 @@ public class ModuloUsuario extends AppCompatActivity {
         this.reference();
         this.btnRegistroUs.setOnClickListener(this::crearUsuario);
         this.btnBuscarUs.setOnClickListener(this::buscarUsuario);
+        this.btnModificarUsu.setOnClickListener(this::modificarUsuario);
     }
     private void crearUsuario(View view) {
         usuarioBus = etClave.getText().toString().trim();
@@ -189,6 +191,7 @@ public class ModuloUsuario extends AppCompatActivity {
         this.btnRegistroUs = findViewById(R.id.btnRegistroUs);
         this.btnBuscarUs = findViewById(R.id.btnBuscarUs);
         this.etConfClave = findViewById(R.id.etConfClave);
+        this.btnModificarUsu = findViewById(R.id.btnModificarUsu);
     }
 
 }
