@@ -82,7 +82,25 @@ public class ConductorRepository {
 
         }
     }
+    public boolean updateConductor(Conductor conductor) {
+        SQLiteDatabase dataBaseSql  = dataBaseConductor.getWritableDatabase();
+        try {
 
+            ContentValues values = new ContentValues();
+            values.put("nombre_con", conductor.getNombre_con());
+            values.put("apellido_con", conductor.getApellido_con());
+            values.put("telefono_con", conductor.getTelefono_con());
+            values.put("direccion_con", conductor.getDireccion_con());
+
+            int rowsUpdated = dataBaseSql.update("conductor", values, "cedula_con = ?", new String[]{String.valueOf(conductor.getCedula_con())});
+
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            Log.e("ConductorRepository", "Error al actualizar conductor: " + e.getMessage(), e);
+            Snackbar.make(view, "Error al actualizar el conductor: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            return false;
+        }
+    }
     public ArrayList<Conductor> getConductorList() {
         SQLiteDatabase dataBaseSql = dataBaseConductor.getReadableDatabase();
         String query = "SELECT * FROM conductor LIMIT 5";

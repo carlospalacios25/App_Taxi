@@ -12,7 +12,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.edu.uniminuto.app_taxi.R;
+import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.edu.uniminuto.app_taxi.entities.Usuario;
+import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
 import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
 
 import java.nio.charset.StandardCharsets;
@@ -119,6 +121,55 @@ public class ModuloUsuario extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle("Usuario no encontrado")
                     .setMessage("No se encontró el usuario ingresado.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        }
+    }
+    private void modificarUsuario(View view) {
+        if (etUsuario.getText().toString().trim().isEmpty() ||
+                etClave.getText().toString().trim().isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Campos vacíos")
+                    .setMessage("No puedes dejar campos vacíos")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+        usuarioBus = etClave.getText().toString().trim();
+        usuarioConBus = etConfClave.getText().toString().trim();
+        validacionClave = usuarioBus.equals(usuarioConBus);
+        if (validacionClave != true) {
+            new AlertDialog.Builder(this)
+                    .setTitle("La Contraseña")
+                    .setMessage("Las contraseñas no coinciden")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+        capData();
+        if (usuarios == "") {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("La placa ingresada no es válida.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+
+        Usuario usuario  = new Usuario(usuarios, clave);
+        UsuarioRepository usuarioRepository = new UsuarioRepository(this, view);
+        boolean result = usuarioRepository.updateUsuario(usuario);
+        if (result) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Conductor actualizado")
+                    .setMessage("El usuario " + usuarios + " ha sido actualizado exitosamente.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            limpiarCampos();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("No se encontró Usuario: " + usuarios)
                     .setPositiveButton("Aceptar", null)
                     .show();
         }

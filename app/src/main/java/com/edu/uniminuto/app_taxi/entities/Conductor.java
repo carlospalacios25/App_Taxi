@@ -18,6 +18,13 @@ public class Conductor {
         this.direccion_con = direccion_con;
     }
 
+    public Conductor(String nombre_con, String apellido_con, long telefono_con, String direccion_con) {
+        this.nombre_con = nombre_con;
+        this.apellido_con = apellido_con;
+        this.telefono_con = telefono_con;
+        this.direccion_con = direccion_con;
+    }
+
     public long getCedula_con() {
         return cedula_con;
     }

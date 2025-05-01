@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
+import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -59,6 +60,23 @@ public class TaxiRepository {
             Log.i("Campo vacio", e.getMessage());
             e.printStackTrace();
             return null;
+        }
+    }
+    public boolean updateTaxi(Taxi taxi) {
+        SQLiteDatabase dataBaseSql  = dataBaseTaxi.getWritableDatabase();
+        try {
+
+            ContentValues values = new ContentValues();
+            values.put("marca_taxi", taxi.getMarca_taxi());
+            values.put("placa_taxi", taxi.getPlaca_taxi());
+
+            int rowsUpdated = dataBaseSql.update("taxi", values, "placa_taxi = ?", new String[]{String.valueOf(taxi.getPlaca_taxi())});
+
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            Log.e("TaxiRepository", "Error al actualizar taxi: " + e.getMessage(), e);
+            Snackbar.make(view, "Error al actualizar el taxi: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            return false;
         }
     }
 }

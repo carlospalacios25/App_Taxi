@@ -3,6 +3,7 @@ package com.edu.uniminuto.app_taxi.moduls;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -73,9 +74,45 @@ public class ModuloConductor extends AppCompatActivity {
     }
 
     private void modificarConductor(View view) {
+        if (etCedulaCon.getText().toString().trim().isEmpty() ||
+           etNombreCon.getText().toString().trim().isEmpty() ||
+           etApellidoCon.getText().toString().trim().isEmpty() ||
+           etDireccionCon.getText().toString().trim().isEmpty()) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Campos vacíos")
+                    .setMessage("No puedes dejar campos vacíos")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            return;
+        }
+            capData();
+            if (cedulaCon == 0) {
+                new AlertDialog.Builder(this)
+                        .setTitle("Error")
+                        .setMessage("La cédula ingresada no es válida.")
+                        .setPositiveButton("Aceptar", null)
+                        .show();
+                return;
+            }
 
+            Conductor conductor = new Conductor(cedulaCon, nombreCon, apellidoCon, telefonoCon, direccionCon);
+            ConductorRepository conductorRepository = new ConductorRepository(this, view);
+            boolean result = conductorRepository.updateConductor(conductor);
+            if (result) {
+                new AlertDialog.Builder(this)
+                        .setTitle("Conductor actualizado")
+                        .setMessage("El conductor con cédula " + cedulaCon + " ha sido actualizado exitosamente.")
+                        .setPositiveButton("Aceptar", null)
+                        .show();
+                limpiarCampos();
+            } else {
+                new AlertDialog.Builder(this)
+                        .setTitle("Error")
+                        .setMessage("No se encontró un conductor con cédula: " + cedulaCon)
+                        .setPositiveButton("Aceptar", null)
+                        .show();
+            }
     }
-
     private void crearConductor(View view) {
         if (etCedulaCon.getText().toString().trim().isEmpty() ||
                 etNombreCon.getText().toString().trim().isEmpty() ||

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
+import com.edu.uniminuto.app_taxi.entities.Conductor;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.edu.uniminuto.app_taxi.entities.Usuario;
 import com.google.android.material.snackbar.Snackbar;
@@ -59,6 +60,23 @@ public class UsuarioRepository {
             Log.i("Campo vacio", e.getMessage());
             e.printStackTrace();
             return null;
+        }
+    }
+    public boolean updateUsuario(Usuario usuario) {
+        SQLiteDatabase dataBaseSql  = dataBaseUsuario.getWritableDatabase();
+        try {
+
+            ContentValues values = new ContentValues();
+            values.put("usuario", usuario.getUsuario());
+            values.put("clave", usuario.getClave());
+
+            int rowsUpdated = dataBaseSql.update("usuarios", values, "usuario = ?", new String[]{String.valueOf(usuario.getUsuario())});
+
+            return rowsUpdated > 0;
+        } catch (SQLException e) {
+            Log.e("ConductorRepository", "Error al actualizar usuario: " + e.getMessage(), e);
+            Snackbar.make(view, "Error al actualizar el usuario: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+            return false;
         }
     }
 }

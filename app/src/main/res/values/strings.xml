@@ -40,5 +40,7 @@
     <string name="btnMtaxi">Modulo Taxi</string>
     <string name="btnGastos">Modulo Utilidad</string>
     <string name="btnUsuario">Modulo Usuario</string>
+    <string name="btnModificarTaxi">Modificar Taxi</string>
+    <string name="btnModificarUsu">Modificar Usuario</string>
 
 </resources>
