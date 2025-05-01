@@ -5,49 +5,118 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/edit_text_background"
     tools:context=".moduls.ModuloMenu">
 
-    <Button
-        android:id="@+id/btnMconductor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/btnMconductor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnMtaxi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="Taxi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.168"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_conductor"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="72dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/card_taxi"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvMenu">
 
-    <Button
-        android:id="@+id/btnGastos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
-        android:text="Regitro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.167"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnMconductor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:drawableTop="@android:drawable/ic_menu_myplaces"
+            android:padding="16dp"
+            android:scaleType="centerInside"
+            android:text="@string/btnMconductor"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/btnUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="316dp"
-        android:text="Usuario"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_taxi"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toEndOf="@id/card_conductor"
+        app:layout_constraintTop_toBottomOf="@+id/tvMenu">
+
+        <Button
+            android:id="@+id/btnMtaxi"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:drawableTop="@android:drawable/ic_menu_rotate"
+            android:padding="16dp"
+            android:text="Taxi"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_gastos"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="60dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toStartOf="@id/card_usuario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/card_conductor">
+
+        <Button
+            android:id="@+id/btnGastos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:drawableTop="@android:drawable/ic_menu_save"
+            android:padding="16dp"
+            android:text="Registro"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_usuario"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card_gastos"
+        app:layout_constraintTop_toBottomOf="@+id/card_taxi">
+
+        <Button
+            android:id="@+id/btnUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:drawableTop="@android:drawable/ic_menu_myplaces"
+            android:padding="16dp"
+            android:text="Usuario"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="196dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="136dp"
+        android:text="@string/tvMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/titulos"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,7 +47,14 @@
     <string name="btnRegistro">Registrarse</string>
     <string name="etUsuariInciar">Ingresa el Usuario</string>
     <string name="etClaveIniciar">Ingresa la Contraseña</string>
-    <string name="btnMconductor">>Modulo Conductor</string>
+    <string name="btnMconductor">Modulo Conductor</string>
+    <string name="tvMenu">Modulos</string>
 
+    <string name="tvRegistroRecu">Recuperar Contraseña</string>
+    <string name="etUsuarioRecu">Usuario Recuperar</string>
+    <string name="etConfClaveRecu">Contraseña Nueva</string>
+    <string name="etclaveRecu">Confirma Contraseña</string>
+    <string name="btnRecuperarUs">Actualizar Contraseña</string>
+    <string name="btnOlvidoClave">Olvido Clave</string>
 
 </resources>

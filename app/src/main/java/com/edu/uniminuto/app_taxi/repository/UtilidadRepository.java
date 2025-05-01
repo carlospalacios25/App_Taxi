@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
 import com.edu.uniminuto.app_taxi.entities.Usuario;
@@ -44,7 +45,8 @@ public class UtilidadRepository {
             long response = databaseSql.insertOrThrow("registroDiario", null, values);
 
             String message = (response >= 1) ? "Se registró la utilidad" : "No se registró";
-            Snackbar.make(this.view, message, Snackbar.LENGTH_LONG).show();
+
+            Toast.makeText(this.view.getContext(), message, Toast.LENGTH_SHORT).show();
         } catch (SQLException e) {
             Log.e("UtilidadRepository", "insertUtilidad: " + e.getMessage());
             Snackbar.make(this.view, "Error al registrar la utilidad: " + e.getMessage(), Snackbar.LENGTH_LONG).show();

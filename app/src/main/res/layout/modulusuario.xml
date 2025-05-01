@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegistro" />
 
     <EditText
-        android:id="@+id/etutilidadTaxi"
+        android:id="@+id/etClave"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginStart="32dp"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etutilidadTaxi" />
+        app:layout_constraintTop_toBottomOf="@+id/etClave" />
 
     <Button
         android:id="@+id/btnCrearTaxi"

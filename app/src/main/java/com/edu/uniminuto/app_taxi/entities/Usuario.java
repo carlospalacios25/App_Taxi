@@ -1,30 +1,33 @@
 package com.edu.uniminuto.app_taxi.entities;
 
 public class Usuario {
-    private String usuario;
-    private String clave;
+    private String nombreUsuario;
+    private String claveUsuario;
 
     public Usuario() {
     }
 
     public Usuario(String usuario, String clave) {
-        this.usuario = usuario;
-        this.clave = clave;
+        this.nombreUsuario = usuario;
+        this.claveUsuario = clave;
+    }
+    public Usuario(String clave) {
+        this.claveUsuario = clave;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getClave() {
-        return clave;
+    public String getClaveUsuario() {
+        return claveUsuario;
     }
 
-    public void setClave(String clave) {
-        this.clave = clave;
+    public void setClaveUsuario(String claveUsuario) {
+        this.claveUsuario = claveUsuario;
     }
 }

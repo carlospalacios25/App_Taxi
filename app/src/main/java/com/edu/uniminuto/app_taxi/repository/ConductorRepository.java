@@ -7,6 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.edu.uniminuto.app_taxi.dataaccess.DataBaseTaxi;
 import com.edu.uniminuto.app_taxi.entities.Conductor;
@@ -39,7 +40,7 @@ public class ConductorRepository {
                 long reponse = databaseSql.insert("Conductor",null ,values);
 
                 String message = (reponse>=1)?"Se registro Correctamente":"no se registro";
-                Snackbar.make(this.view,message, Snackbar.LENGTH_LONG).show();
+                Toast.makeText(this.view.getContext(), message, Toast.LENGTH_SHORT).show();
             }
         }catch (SQLException e){
             Log.i("Error en base de datos","insetUser: "+e.getMessage());

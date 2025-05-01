@@ -33,8 +33,8 @@ public class UsuarioRepository {
         try {
             SQLiteDatabase databaseSql = dataBaseUsuario.getWritableDatabase();
             ContentValues values = new ContentValues();
-            values.put("nombreUsuario", usuario.getUsuario());
-            values.put("claveUsuario", usuario.getClave());
+            values.put("nombreUsuario", usuario.getNombreUsuario());
+            values.put("claveUsuario", usuario.getClaveUsuario());
 
             long response = databaseSql.insertOrThrow("usuarios", null, values);
 
@@ -52,8 +52,8 @@ public class UsuarioRepository {
             Cursor cursor = dataBaseSql.rawQuery(query, new String[]{String.valueOf(usuarioU)});
             Usuario usuarioCo = new Usuario();
             if (cursor.moveToFirst()){
-                usuarioCo.setUsuario(cursor.getString(1));
-                usuarioCo.setClave(cursor.getString(2));
+                usuarioCo.setNombreUsuario(cursor.getString(1));
+                usuarioCo.setClaveUsuario(cursor.getString(2));
             }
             cursor.close();
             dataBaseSql.close();
@@ -69,10 +69,10 @@ public class UsuarioRepository {
         try {
 
             ContentValues values = new ContentValues();
-            values.put("usuario", usuario.getUsuario());
-            values.put("clave", usuario.getClave());
+            values.put("nombreUsuario", usuario.getNombreUsuario());
+            values.put("claveUsuario", usuario.getClaveUsuario());
 
-            int rowsUpdated = dataBaseSql.update("usuarios", values, "nombreUsuario = ?", new String[]{String.valueOf(usuario.getUsuario())});
+            int rowsUpdated = dataBaseSql.update("usuarios", values, "nombreUsuario = ?", new String[]{String.valueOf(usuario.getNombreUsuario())});
 
             return rowsUpdated > 0;
         } catch (SQLException e) {

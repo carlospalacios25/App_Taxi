@@ -1,6 +1,7 @@
 package com.edu.uniminuto.app_taxi.moduls;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,27 +24,35 @@ public class ModuloUsuario extends AppCompatActivity {
     private Button btnCrearTaxi;
     private Button btnBuscarUs;
     private Button btnModificarUsu;
-    private EditText etConfClave;
     private String usuarioBus;
     private String usuarioConBus;
+    private EditText etConfClave;
+    private String password;
+    private String confirmPassword;
     private boolean validacionClave;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.usuarios);
+        setContentView(R.layout.modulusuario);
 
         this.reference();
         this.btnCrearTaxi.setOnClickListener(this::crearUsuario);
         this.btnBuscarUs.setOnClickListener(this::buscarUsuario);
         this.btnModificarUsu.setOnClickListener(this::modificarUsuario);
     }
+
     private void crearUsuario(View view) {
-        usuarioBus = etClave.getText().toString().trim();
-        usuarioConBus = etConfClave.getText().toString().trim();
-        validacionClave = usuarioBus.equals(usuarioConBus);
-        if (validacionClave != true) {
+        if (etClave == null || etConfClave == null || etUsuario == null) {
+            Toast.makeText(this, "Error: Uno o más campos no están inicializados.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        password = etClave.getText().toString().trim();
+        confirmPassword = etConfClave.getText().toString().trim();
+        validacionClave = password.equals(confirmPassword);
+        if (!validacionClave) {
             new AlertDialog.Builder(this)
                     .setTitle("La Contraseña")
                     .setMessage("Las contraseñas no coinciden")
@@ -70,7 +79,7 @@ public class ModuloUsuario extends AppCompatActivity {
             limpiarCampos();
 
         } catch (Exception e) {
-            Toast.makeText(this, "Error al crear el usuario: ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Error al crear el usuario: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             new AlertDialog.Builder(this)
                     .setTitle("Error")
                     .setMessage("Error al crear el usuario: " + e.getMessage())
@@ -78,7 +87,13 @@ public class ModuloUsuario extends AppCompatActivity {
                     .show();
         }
     }
+
     private void buscarUsuario(View view) {
+        if (etUsuario == null) {
+            Toast.makeText(this, "Error: Uno o más campos no están inicializados.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String usuarioBus = etUsuario.getText().toString().trim();
         if (usuarioBus.isEmpty()) {
             new AlertDialog.Builder(this)
@@ -93,8 +108,8 @@ public class ModuloUsuario extends AppCompatActivity {
         Usuario usuario = usuarioRepository.getUsuarioByU(usuarioBus);
 
         if (usuario != null) {
-            etUsuario.setText(usuario.getUsuario());
-            etClave.setText(usuario.getClave());
+            etUsuario.setText(usuario.getNombreUsuario());
+            etClave.setText(usuario.getClaveUsuario());
         } else {
             new AlertDialog.Builder(this)
                     .setTitle("Usuario no encontrado")
@@ -103,6 +118,7 @@ public class ModuloUsuario extends AppCompatActivity {
                     .show();
         }
     }
+
     private void modificarUsuario(View view) {
         if (etUsuario.getText().toString().trim().isEmpty() ||
                 etClave.getText().toString().trim().isEmpty()) {
@@ -133,9 +149,10 @@ public class ModuloUsuario extends AppCompatActivity {
                     .show();
             return;
         }
-
-        Usuario usuario  = new Usuario(usuarios, clave);
         UsuarioRepository usuarioRepository = new UsuarioRepository(this, view);
+        String claveHash = usuarioRepository.claveEncriptada(clave);
+        Usuario usuario = new Usuario(usuarios,claveHash);
+
         boolean result = usuarioRepository.updateUsuario(usuario);
         if (result) {
             Toast.makeText(this, "Usuario Actualizado: ", Toast.LENGTH_SHORT).show();
@@ -148,22 +165,25 @@ public class ModuloUsuario extends AppCompatActivity {
                     .show();
         }
     }
+
     private void limpiarCampos() {
         this.etUsuario.setText("");
         this.etClave.setText("");
         this.etConfClave.setText("");
     }
+
     private void capData() {
         this.usuarios = etUsuario.getText().toString().trim();
         this.clave = etClave.getText().toString().trim();
     }
-    private void reference(){
+
+    private void reference() {
         this.etUsuario = findViewById(R.id.etUsuario);
-        this.etClave = findViewById(R.id.etutilidadTaxi);
+        this.etClave = findViewById(R.id.etClave);
         this.btnCrearTaxi = findViewById(R.id.btnCrearTaxi);
         this.btnBuscarUs = findViewById(R.id.btnBuscarUs);
         this.etConfClave = findViewById(R.id.etConfClave);
         this.btnModificarUsu = findViewById(R.id.btnModificarUsu);
-    }
 
+    }
 }

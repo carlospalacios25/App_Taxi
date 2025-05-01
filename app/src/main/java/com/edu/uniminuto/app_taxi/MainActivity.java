@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText etClaveIniciar;
     private String usuarioIniciar;
     private String claveIniciar;
+    private Button btnOlvidoClave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         this.Referencia();
         this.btnIngresar.setOnClickListener(this::iniciarSesion);
         this.btnRegistro.setOnClickListener(this::registroUsuario);
+       // this.btnOlvidoClave.setOnClickListener(this::RecoverUsuario);
     }
 
     private void registroUsuario(View view) {
@@ -67,11 +69,16 @@ public class MainActivity extends AppCompatActivity {
         this.usuarioIniciar = etUsuariInciar.getText().toString().trim();
         this.claveIniciar = etClaveIniciar.getText().toString().trim();
     }
+   /* private void RecoverUsuario(View view) {
+        this.intent = new Intent(MainActivity.this, ModuloRecuperarU.class);
+        startActivityForResult(intent, 1);
+    }*/
 
     private void Referencia() {
         this.btnIngresar = findViewById(R.id.btnMconductor);
         this.btnRegistro = findViewById(R.id.btnRegistro);
         this.etUsuariInciar = findViewById(R.id.etUsuariInciar);
         this.etClaveIniciar = findViewById(R.id.etClaveIniciar);
+        this.btnOlvidoClave =findViewById(R.id.btnOlvidoClave);
     }
 }
