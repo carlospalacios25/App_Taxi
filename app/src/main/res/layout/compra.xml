@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etgastosCom"
+        android:id="@+id/etCedulaCon"
         android:layout_width="312dp"
         android:layout_height="54dp"
         android:layout_marginTop="24dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegistro" />
 
     <EditText
-        android:id="@+id/etigresoscom"
+        android:id="@+id/etNombreCon"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="20dp"
@@ -43,10 +43,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etgastosCom" />
+        app:layout_constraintTop_toBottomOf="@+id/etCedulaCon" />
 
     <EditText
-        android:id="@+id/etClave"
+        android:id="@+id/etApellidoCon"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
@@ -57,10 +57,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etigresoscom" />
+        app:layout_constraintTop_toBottomOf="@+id/etNombreCon" />
 
     <EditText
-        android:id="@+id/etfechaCom"
+        android:id="@+id/etTelefonoCon"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
@@ -70,10 +70,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintTop_toBottomOf="@+id/etApellidoCon" />
 
     <EditText
-        android:id="@+id/etdescripcionCom"
+        android:id="@+id/etDireccionCon"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="24dp"
@@ -83,7 +83,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etfechaCom" />
+        app:layout_constraintTop_toBottomOf="@+id/etTelefonoCon" />
 
     <EditText
         android:id="@+id/etcedulaCon"
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etdescripcionCom" />
+        app:layout_constraintTop_toBottomOf="@+id/etDireccionCon" />
 
     <Button
         android:id="@+id/btnRegistroUs"

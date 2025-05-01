@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class ModuloConductor extends AppCompatActivity {
     private Context context;
-
     private EditText etCedulaCon;
     private EditText etNombreCon;
     private EditText etApellidoCon;
@@ -36,6 +35,8 @@ public class ModuloConductor extends AppCompatActivity {
     private long telefonoCon;
     private String direccionCon;
     private Button btnBuscar;
+    private Button btnModificarCon;
+    private Button btnEliminarCon;
     private ListView lvListar;
 
     @Override
@@ -47,6 +48,31 @@ public class ModuloConductor extends AppCompatActivity {
         this.referencia();
         this.btnCrearCon.setOnClickListener(this::crearConductor);
         this.btnBuscar.setOnClickListener(this::buscarConductor);
+        this.btnModificarCon.setOnClickListener(this::modificarConductor);
+        this.btnEliminarCon.setOnClickListener(this::eliminarConductor);
+    }
+
+    private void eliminarConductor(View view) {
+        capData();
+        ConductorRepository conductorRepository = new ConductorRepository(this, view);
+        boolean result = conductorRepository.deleteConductor(cedulaCon);
+        if (result) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Conductor eliminado")
+                    .setMessage("El conductor con cédula " + cedulaCon + " ha sido eliminado exitosamente.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+            limpiarCampos();
+        } else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("No se encontró un conductor con cédula: " + cedulaCon)
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        }
+    }
+
+    private void modificarConductor(View view) {
 
     }
 
@@ -73,11 +99,21 @@ public class ModuloConductor extends AppCompatActivity {
     }
 
     private void capData(){
-        this.cedulaCon = Long.parseLong(this.etCedulaCon.getText().toString());
-        this.nombreCon = etNombreCon.getText().toString();
-        this.apellidoCon = etApellidoCon.getText().toString();
-        this.telefonoCon = Long.parseLong(this.etTelefonoCon.getText().toString());
-        this.direccionCon = etDireccionCon.getText().toString();
+        try {
+            cedulaCon = Long.parseLong(etCedulaCon.getText().toString().trim());
+            nombreCon = etNombreCon.getText().toString().trim();
+            apellidoCon = etApellidoCon.getText().toString().trim();
+            telefonoCon = Long.parseLong(etTelefonoCon.getText().toString().trim());
+            direccionCon = etDireccionCon.getText().toString().trim();
+        } catch (NumberFormatException e) {
+            cedulaCon = 0;
+            telefonoCon =0;
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("Cédula o teléfono no válidos. Ingrese solo números.")
+                    .setPositiveButton("Aceptar", null)
+                    .show();
+        }
     }
     private void limpiarCampos() {
         this.etCedulaCon.setText("");
@@ -129,13 +165,15 @@ public class ModuloConductor extends AppCompatActivity {
     }
 
     private void referencia(){
-        this.etCedulaCon = findViewById(R.id.etgastosCom);
-        this.etNombreCon = findViewById(R.id.etigresoscom);
-        this.etApellidoCon = findViewById(R.id.etClave);
-        this.etTelefonoCon = findViewById(R.id.etfechaCom);
-        this.etDireccionCon = findViewById(R.id.etdescripcionCom);
+        this.etCedulaCon = findViewById(R.id.etCedulaCon);
+        this.etNombreCon = findViewById(R.id.etNombreCon);
+        this.etApellidoCon = findViewById(R.id.etApellidoCon);
+        this.etTelefonoCon = findViewById(R.id.etTelefonoCon);
+        this.etDireccionCon = findViewById(R.id.etDireccionCon);
         this.btnCrearCon = findViewById(R.id.btnRegistroUs);
         this.btnBuscar = findViewById(R.id.btnBuscarU);
+        this.btnModificarCon = findViewById(R.id.btnModificarCon);
+        this.btnEliminarCon = findViewById(R.id.btnEliminarCon);
         this.context = this;
         this.direccionCon = etDireccionCon.getText().toString();
 

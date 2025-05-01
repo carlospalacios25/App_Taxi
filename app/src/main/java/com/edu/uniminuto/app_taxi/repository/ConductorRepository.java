@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 
 public class ConductorRepository {
-    private DataBaseTaxi dataBaseTaxi;
+    private DataBaseTaxi dataBaseConductor;
     private Context context;
     private View view;
     private Conductor conductor;
@@ -23,11 +23,11 @@ public class ConductorRepository {
     public ConductorRepository(Context context, View view) {
         this.context = context;
         this.view = view;
-        this.dataBaseTaxi = new DataBaseTaxi(context);
+        this.dataBaseConductor = new DataBaseTaxi(context);
     }
     public void insertConductor(Conductor conductor){
         try {
-            SQLiteDatabase databaseSql = dataBaseTaxi.getWritableDatabase();
+            SQLiteDatabase databaseSql = dataBaseConductor.getWritableDatabase();
             if (databaseSql != null){
                 ContentValues values = new ContentValues();
                 values.put("cedula_con",conductor.getCedula_con());
@@ -49,7 +49,7 @@ public class ConductorRepository {
     public Conductor getConductorByCedula(long document){
         try {
             Conductor conductor = null;
-            SQLiteDatabase dataBaseSql = dataBaseTaxi.getReadableDatabase();
+            SQLiteDatabase dataBaseSql = dataBaseConductor.getReadableDatabase();
             String query = "SELECT * FROM conductor WHERE cedula_con = ?" ;
             Cursor cursor = dataBaseSql.rawQuery(query, new String[]{String.valueOf(document)});
             if (cursor.moveToFirst()){
@@ -70,8 +70,21 @@ public class ConductorRepository {
             return null;
         }
     }
+    public boolean deleteConductor(long documento) {
+        SQLiteDatabase dataBaseSql = dataBaseConductor.getWritableDatabase();
+        try {
+            dataBaseSql.execSQL("DELETE FROM conductor WHERE cedula_con = documento");
+            return true;
+        } catch (SQLException e) {
+            Log.i("Campo vacio", e.getMessage());
+            e.printStackTrace();
+            return false;
+
+        }
+    }
+
     public ArrayList<Conductor> getConductorList() {
-        SQLiteDatabase dataBaseSql = dataBaseTaxi.getReadableDatabase();
+        SQLiteDatabase dataBaseSql = dataBaseConductor.getReadableDatabase();
         String query = "SELECT * FROM conductor LIMIT 5";
         ArrayList<Conductor> users = new ArrayList<>();
         Cursor cursor = dataBaseSql.rawQuery(query, null);
@@ -91,5 +104,6 @@ public class ConductorRepository {
         dataBaseSql.close();
         return users;
     }
+
 
 }

@@ -8,18 +8,18 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnIngresar"
+        android:id="@+id/btnMconductor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Button"
+        android:text="@string/btnMconductor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.168"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnIngresar2"
+        android:id="@+id/btnMtaxi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"

@@ -134,7 +134,7 @@ public class ModuloUsuario extends AppCompatActivity {
     }
     private void reference(){
         this.etUsuario = findViewById(R.id.etUsuario);
-        this.etClave = findViewById(R.id.etClave);
+        this.etClave = findViewById(R.id.etApellidoCon);
         this.btnRegistroUs = findViewById(R.id.btnRegistroUs);
         this.btnBuscarUs = findViewById(R.id.btnBuscarUs);
         this.etConfClave = findViewById(R.id.etConfClave);

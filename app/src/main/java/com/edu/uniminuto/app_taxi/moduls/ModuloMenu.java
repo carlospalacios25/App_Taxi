@@ -7,17 +7,13 @@ import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.edu.uniminuto.app_taxi.MainActivity;
 import com.edu.uniminuto.app_taxi.R;
 
 public class ModuloMenu extends AppCompatActivity {
-    private Button prueba;
+    private Button btnMtaxi;
     private Intent intent;
-    private Button btnIngresar2;
+    private Button btnMconductor;
     private Button btnGastos;
     private Button btnUsuario;
 
@@ -29,8 +25,8 @@ public class ModuloMenu extends AppCompatActivity {
 
 
         this.Referencia();
-        this.prueba.setOnClickListener(this::OpenModConductor);
-        this.btnIngresar2.setOnClickListener(this::OpenModTaxi);
+        this.btnMtaxi.setOnClickListener(this::OpenModTaxi);
+        this.btnMconductor.setOnClickListener(this::OpenModConductor);
         this.btnGastos.setOnClickListener(this::OpenModGasto);
         this.btnUsuario.setOnClickListener(this::OpenUsuario);
 
@@ -56,8 +52,8 @@ public class ModuloMenu extends AppCompatActivity {
 
     private void Referencia(){
         this.btnUsuario = findViewById(R.id.btnUsuario);
-        this.prueba = findViewById(R.id.btnIngresar);
-        this.btnIngresar2 =findViewById(R.id.btnIngresar2);
+        this.btnMtaxi = findViewById(R.id.btnMtaxi);
+        this.btnMconductor =findViewById(R.id.btnMconductor);
         this.btnGastos =findViewById(R.id.btnGastos);
     }
 }

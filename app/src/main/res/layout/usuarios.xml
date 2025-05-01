@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegistro" />
 
     <EditText
-        android:id="@+id/etClave"
+        android:id="@+id/etApellidoCon"
         android:layout_width="314dp"
         android:layout_height="53dp"
         android:layout_marginTop="28dp"
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etClave" />
+        app:layout_constraintTop_toBottomOf="@+id/etApellidoCon" />
 
     <Button
         android:id="@+id/btnRegistroUs"

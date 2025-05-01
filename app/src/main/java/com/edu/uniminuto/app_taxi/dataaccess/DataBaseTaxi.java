@@ -23,10 +23,10 @@ public class DataBaseTaxi extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try {
             final String CREATE_TABLE_CONDUCTOR = "CREATE TABLE " + TABLE_CONDUCTOR + " (" +
-                    "cedula_con BIGINT PRIMARY KEY NOT NULL, " +
+                    "cedula_con INTEGER PRIMARY KEY NOT NULL, " +
                     "nombre_con VARCHAR(80) NOT NULL, " +
                     "apellido_con VARCHAR(80) NOT NULL, " +
-                    "telefono_con BIGINT NOT NULL, " +
+                    "telefono_con INTEGER NOT NULL, " +
                     "direccion_con VARCHAR(200) NOT NULL)";
             db.execSQL(CREATE_TABLE_CONDUCTOR);
 

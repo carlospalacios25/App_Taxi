@@ -103,7 +103,7 @@ public class ModuloTaxi extends AppCompatActivity {
     private void referencia() {
         this.etmarcaTaxi = findViewById(R.id.etUsuario);
         this.btnCrearTaxi = findViewById(R.id.btnRegistroUs);
-        this.etplacaTaxi = findViewById(R.id.etClave);
+        this.etplacaTaxi = findViewById(R.id.etApellidoCon);
         this.btnBuscarTaxi = findViewById(R.id.btnBuscarU);
         this.context = this;
     }

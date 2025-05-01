@@ -8,6 +8,9 @@
     <string name="etDireccionCon">Direccion Conductor</string>
     <string name="btnCrearCon">Crear Conductor</string>
     <string name="btnBuscar">Buscar Conductor</string>
+    <string name="btnModificarCon">Modificar Conductor</string>
+    <string name="btnEliminarCon">Eliminar Conductor</string>
+
 
     <string name="tvTituloTaxi">Crear Taxi</string>
     <string name="etplacaTaxi">Placa Taxi</string>
@@ -32,5 +35,10 @@
     <string name="btnRegistroUs">Registro Usuario</string>
     <string name="etConfClave">Confirmacion Clave</string>
     <string name="btnBuscarUs">Buscar Usuario</string>
+
+    <string name="btnMconductor">Modulo Conductor</string>
+    <string name="btnMtaxi">Modulo Taxi</string>
+    <string name="btnGastos">Modulo Utilidad</string>
+    <string name="btnUsuario">Modulo Usuario</string>
 
 </resources>
