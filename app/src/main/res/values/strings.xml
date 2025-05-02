@@ -57,5 +57,7 @@
     <string name="btnRecuperarUs">Actualizar Contraseña</string>
     <string name="btnOlvidoClave">Olvido Clave</string>
     <string name="btnRegistroNewUsu">Registrase</string>
+    <string name="tvRecuperarU">Cambio de contraseña</string>
+    <string name="btnRecuperar">Solicitar Cambio</string>
 
 </resources>

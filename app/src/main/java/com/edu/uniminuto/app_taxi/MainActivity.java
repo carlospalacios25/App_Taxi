@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.edu.uniminuto.app_taxi.moduls.ModuloMenu;
+import com.edu.uniminuto.app_taxi.moduls.ModuloRecuperarU;
 import com.edu.uniminuto.app_taxi.moduls.ModuloRegistroUs;
 import com.edu.uniminuto.app_taxi.moduls.ModuloUsuario;
 import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         this.Referencia();
         this.btnIngresar.setOnClickListener(this::iniciarSesion);
         this.btnRegistro.setOnClickListener(this::registroUsuario);
-       // this.btnOlvidoClave.setOnClickListener(this::RecoverUsuario);
+        this.btnOlvidoClave.setOnClickListener(this::RecoverUsuario);
     }
 
     private void registroUsuario(View view) {
@@ -70,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
         this.usuarioIniciar = etUsuariInciar.getText().toString().trim();
         this.claveIniciar = etClaveIniciar.getText().toString().trim();
     }
-   /* private void RecoverUsuario(View view) {
+    private void RecoverUsuario(View view) {
         this.intent = new Intent(MainActivity.this, ModuloRecuperarU.class);
         startActivityForResult(intent, 1);
-    }*/
+    }
 
     private void Referencia() {
         this.btnIngresar = findViewById(R.id.btnMconductor);

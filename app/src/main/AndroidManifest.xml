@@ -27,6 +27,7 @@
         <activity android:name=".moduls.ModuloUsuario"> </activity>
         <activity android:name=".moduls.ModuloMenu"> </activity>
         <activity android:name=".moduls.ModuloRegistroUs"> </activity>
+        <activity android:name=".moduls.ModuloRecuperarU"> </activity>
 
     </application>
 
