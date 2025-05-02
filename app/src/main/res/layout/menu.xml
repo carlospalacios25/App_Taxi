@@ -109,14 +109,14 @@
         android:id="@+id/tvMenu"
         android:layout_width="196dp"
         android:layout_height="45dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="144dp"
         android:text="@string/tvMenu"
+        android:textColor="@color/titulos"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/titulos"
-        android:textSize="34sp"
-        android:textStyle="bold" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
