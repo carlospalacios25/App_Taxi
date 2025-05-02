@@ -56,5 +56,6 @@
     <string name="etclaveRecu">Confirma Contraseña</string>
     <string name="btnRecuperarUs">Actualizar Contraseña</string>
     <string name="btnOlvidoClave">Olvido Clave</string>
+    <string name="btnRegistroNewUsu">Registrase</string>
 
 </resources>

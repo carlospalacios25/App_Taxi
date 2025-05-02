@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.edu.uniminuto.app_taxi.moduls.ModuloMenu;
+import com.edu.uniminuto.app_taxi.moduls.ModuloRegistroUs;
 import com.edu.uniminuto.app_taxi.moduls.ModuloUsuario;
 import com.edu.uniminuto.app_taxi.repository.UsuarioRepository;
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void registroUsuario(View view) {
-        this.intent = new Intent(MainActivity.this, ModuloUsuario.class);
+        this.intent = new Intent(MainActivity.this, ModuloRegistroUs.class);
         startActivityForResult(intent, 1);
     }
 
