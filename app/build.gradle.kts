@@ -32,7 +32,8 @@ android {
 }
 
 dependencies {
-
+    //implementation(files("libs/ksoap2-android-3.6.4.jar"))
+    implementation(libs.ksoap2)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

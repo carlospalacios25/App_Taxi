@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edu.uniminuto.app_taxi.MainActivity;
 import com.edu.uniminuto.app_taxi.R;
 
 public class ModuloMenu extends AppCompatActivity {
@@ -17,6 +18,7 @@ public class ModuloMenu extends AppCompatActivity {
     private Button btnMtaxi;
     private Button btnGastos;
     private Button btnUsuario;
+    private Button btnMApi;
 
 
     @Override
@@ -32,6 +34,12 @@ public class ModuloMenu extends AppCompatActivity {
         this.btnMtaxi.setOnClickListener(this::OpenModTaxi);
         this.btnGastos.setOnClickListener(this::OpenModGasto);
         this.btnUsuario.setOnClickListener(this::OpenUsuario);
+        this.btnMApi.setOnClickListener(this::ApiOpen);
+    }
+
+    private void ApiOpen(View view) {
+        this.intent = new Intent(ModuloMenu.this, ModuloApi.class);
+        startActivityForResult(intent, 1);
     }
 
     private void OpenModGasto(View view) {
@@ -68,5 +76,6 @@ public class ModuloMenu extends AppCompatActivity {
         this.btnMtaxi = findViewById(R.id.btnMtaxi);
         this.btnMconductor =findViewById(R.id.btnMconductor);
         this.btnGastos =findViewById(R.id.btnGastos);
+        this.btnMApi =findViewById(R.id.btnApi);
     }
 }

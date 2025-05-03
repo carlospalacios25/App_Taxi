@@ -1,6 +1,7 @@
 package com.edu.uniminuto.app_taxi.moduls;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.edu.uniminuto.app_taxi.MainActivity;
 import com.edu.uniminuto.app_taxi.R;
 import com.edu.uniminuto.app_taxi.entities.Taxi;
 import com.edu.uniminuto.app_taxi.repository.TaxiRepository;
@@ -35,9 +37,7 @@ public class ModuloTaxi extends AppCompatActivity {
         this.btnCrearTaxi.setOnClickListener(this::crearTaxi);
         this.btnBuscarTaxi.setOnClickListener(this::buscarTaxi);
         this.btnModificarTaxi.setOnClickListener(this::modificarTaxi);
-
     }
-
     private void buscarTaxi(View view) {
         String placa_taxi = etplacaTaxi.getText().toString().trim();
 
