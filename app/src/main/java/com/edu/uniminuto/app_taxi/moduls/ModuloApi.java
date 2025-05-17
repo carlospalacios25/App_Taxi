@@ -24,7 +24,7 @@ public class ModuloApi extends AppCompatActivity {
     private static final String METHOD_NAME = "CheckColombia";
     private static final String SOAP_ACTION = "http://regcheck.org.uk/CheckColombia";
     private static final String URL = "https://www.placaapi.co/api/reg.asmx";
-    private static final String USERNAME = "carlostop";
+    private static final String USERNAME = "";
 
     private EditText editTextRegistrationNumber;
     private Button buttonCheck;
